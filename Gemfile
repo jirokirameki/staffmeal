@@ -52,4 +52,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# 認証機能
 gem 'devise'
+
+# 日本語化
+gem 'rails-i18n'
+
+# デバッグ用
+gem 'pry-byebug', group: :development
+
+# 環境変数を扱うため
+gem 'dotenv-rails'

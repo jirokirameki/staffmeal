@@ -12,8 +12,13 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">新規登録</a></li>
-        <li><a href="#">ログイン</a></li>
+        <% if shop_signed_in? %>
+          <li><%= link_to 'プロフィール', shop_path(current_shop) %></li>
+          <li><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to '無料ご利用登録', new_shop_registration_path %></li>
+          <li><%= link_to 'ログイン', new_shop_session_path %></li>
+        <% end %>
       </ul>
       </div>
     </div>
