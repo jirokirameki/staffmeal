@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415080937) do
+ActiveRecord::Schema.define(version: 20180415130524) do
+
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "comment"
+    t.integer  "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+    t.index ["shop_id"], name: "index_posts_on_shop_id", using: :btree
+  end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -43,4 +52,5 @@ ActiveRecord::Schema.define(version: 20180415080937) do
     t.index ["unlock_token"], name: "index_shops_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "posts", "shops"
 end

@@ -1,0 +1,33 @@
+<div style="padding:10px;">
+  <p><%= link_to @post.shop.shop_name, shop_path(@post.shop) %></p>
+  <% if shop_signed_in? %>
+    <% if @post.shop.id == current_shop.id %>
+      <ul class="list-inline">
+        <li><%= link_to '編集', edit_post_path(@post), type:"button", class:"btn btn-default" %></li>
+        <li><%= link_to '削除', @post, type:"button", class:"btn btn-danger", method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></li>
+      </ul>
+    <% end %>
+  <% end %> 
+</div>
+
+<!-- 追加箇所 開始 -->
+<div style="text-align: center;">
+  <% if @post.image? %>
+    <%= image_tag @post.image.url, class: 'img' %>
+  <% end %>
+  <!-- 追加箇所 終了 -->
+</div>
+
+<div style="margin:10px;">
+  <!--<i class="far fa-heart"></i>-->
+  <i class="fas fa-heart" style="font-size:20px;"></i>
+  
+  <!--<i class="far fa-comment"></i>-->
+  <i class="fas fa-comment" style="font-size:20px;"></i>
+  <p>いいね！xx,xxx件</p>
+</div>
+
+<div style="padding:10px;">
+  <p><span style="font-weight:bold;"><%= @post.shop.staff_name %></span> <%= @post.comment %></p>
+  <p style="text-align:right;"><%= @post.created_at %></p>
+</div>

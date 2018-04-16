@@ -1,26 +1,18 @@
 <footer>
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-      <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-left" href="/"><img src="/images/logo.png" alt="Monolist"></a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
+  <div class="text-center text-muted">© 2018 STAFFMIEL.</div>
+  
+  <div class="table-responsive container navbar-fixed-bottom">
+    <table class="table" style="table-layout: fixed;">
+      <tr>
         <% if shop_signed_in? %>
-          <li><%= link_to 'プロフィール', shop_path(current_shop) %></li>
-          <li><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %></li>
+          <td><%= link_to 'プロフィール編集', edit_shop_registration_path(current_shop) %></td>
+          <td><%= link_to '投稿', new_post_path %></td>
         <% else %>
-          <li><%= link_to '無料ご利用登録', new_shop_registration_path %></li>
-          <li><%= link_to 'ログイン', new_shop_session_path %></li>
+          <td><%= link_to '無料利用登録', new_shop_registration_path %></td>
+          <td><%= link_to 'ログイン', new_shop_session_path %></td>
         <% end %>
-      </ul>
-      </div>
+        </tr>
+      </table>
     </div>
-  </nav>
+  
 </footer>

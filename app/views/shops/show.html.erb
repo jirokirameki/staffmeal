@@ -1,10 +1,7 @@
-<h1><%= @shop.shop_name %></h1>
-<ul>
-  <li><%= @shop.company_name %></li>
-  <li><%= @shop.url %></li>
-  <li><%= @shop.staff_name %></li>
-  <li><%= @shop.email %></li>
-  <li><%= @shop.tel %></li>
-</ul>
-<p><%= link_to 'プロフィール編集', edit_shop_registration_path(current_shop) %></p>
-
+<div style="padding: 10px;">
+  <%= render 'shops/header', shop: @shop %>
+  
+  <%= render 'shops/tab', shop: @shop %>
+  
+  <p style="margin-top: 10px;">いいね！数xx,xxx件｜フォロワー数xxx人</p>
+  <%= render 'posts/posts', posts: @shop.posts %>

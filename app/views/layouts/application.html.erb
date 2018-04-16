@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Monolist</title>
+    <title>Staffmeal</title>
     <%= csrf_meta_tags %>
-
+    
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- app/assets/stylesheets -->
@@ -24,12 +24,20 @@
 
     <%= yield :cover %>
 
-    <div class="container">
-      <%= render 'layouts/flash_messages' %>
-
-      <%= yield %>
+    <div class='container'>
+      <div class='main'>
+        <%= render 'layouts/flash_messages' %>
+        <%= yield %>
+      </div>
+      
+      <div class='sidebar'>
+        サイドバーエリア
+      </div>
     </div>
 
     <%= render 'layouts/footer' %>
+    
+    <!--Font Awesome-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
   </body>
 </html>

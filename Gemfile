@@ -63,3 +63,18 @@ gem 'pry-byebug', group: :development
 
 # 環境変数を扱うため
 gem 'dotenv-rails'
+
+# ファイルアップロード用
+gem "carrierwave"
+
+# 画像のリサイズ処理に必要
+gem 'rmagick'
+
+# 画像のトリミング処理に必要
+gem 'mini_magick'
+
+# 住所から経度、緯度を取得
+gem 'geocoder'
+
+# GoogleMap用
+gem "gmaps4rails"

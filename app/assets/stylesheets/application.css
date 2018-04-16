@@ -2,12 +2,50 @@
 
 /* body */
 body {
-  background: #f2f2f2;
-  padding-bottom: 100px;
+  /*background: #f2f2f2;*/
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #333;
 }
 footer {
   margin-top: 40px;
 }
+
+footer td {
+  background-color: #fff;
+  
+	filter:alpha(opacity=70);
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	
+	font-weight: bold;
+	text-align: center;
+}
+
+footer td + td {
+  border-left: 2px solid #dddddd;
+}
+
+.container {
+  padding: 0;
+  overflow: hidden;
+}
+
+.main {
+  float: left;
+  
+  width: 75%;
+  height: auto;
+}
+
+.sidebar {
+  float: right;
+  
+  background-color: #87CEFA;
+  
+  width: 25%;  /* デフォルト値　*/
+}
+
 
 /* navbar */
 .navbar {
@@ -48,3 +86,115 @@ footer {
 .required {
   color: red;
 }
+
+
+.media-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.media-list li {
+  display: inline-block;
+  
+  width : 33.33333% ;  /* 未対応ブラウザ用フォールバック */
+  width : -webkit-calc(100% / 3) ;
+  width : calc(100% / 3) ;
+  
+  height: 300px;  /*　デフォルト値　*/
+  
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size:cover;
+  border-right: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	box-sizing: border-box;
+}
+
+.media-list a:nth-of-type(3n) li {
+  border-right: none;
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  
+  color: #fff;
+}
+
+.shop_info {
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+  background-color: #fff;
+  
+	filter:alpha(opacity=70);
+	-moz-opacity: 0.7;
+	opacity: 0.7;  
+}
+
+/*.inline-block {*/
+/*	text-align: center;*/
+/*}*/
+
+/*.inline-block li {*/
+/*	display: inline-block;*/
+/*}*/
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+/* レスポンシブ（ワイドな順に設定） */
+@media screen and (min-width:1200px) {
+	/*　画面サイズが1200px以上の場合、ここのスタイルを読み込む　*/
+  .main {
+	  width: 70%;
+	}	
+	.sidebar {
+	  width: 30%;
+	}
+}
+@media screen and (min-width:992px) and ( max-width:1199px) {
+	/*　画面サイズが992px～1199pxの間は、ここのスタイルを読み込む　*/
+	.media-list li {
+	  height: 250px;
+	}
+}
+@media screen and (min-width:768px) and ( max-width:991px) {
+	/*　画面サイズが768px～991pxの間は、ここのスタイルを読み込む　*/
+	.media-list li {
+	  height: 200px;
+	}
+}
+@media screen and (max-width:767px) { 
+	/*　画面サイズが767px以下の場合、ここのスタイルを読み込む　*/
+  .main {
+	  width: 100%;
+	}	
+	.sidebar {
+	  display: none;
+	}
+}
+@media screen and (min-width:480px) and (max-width:767px) { 
+	/*　画面サイズが480px～767px以下の場合、ここのスタイルを読み込む　*/
+	.media-list li {
+	  height: 150px;
+	}
+}
+@media screen and (max-width:479px) { 
+	/*　画面サイズが479px以下の場合、ここのスタイルを読み込む　*/
+	.media-list li {
+	  height: 100px;
+	}
+}
+
+
+
+

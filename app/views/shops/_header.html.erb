@@ -1,0 +1,9 @@
+<p><%= shop.shop_name %></p>
+<% if shop_signed_in? %>
+  <% if shop.id == current_shop.id %>
+    <ul class="list-inline">
+      <li><%= link_to 'プロフィール編集', edit_shop_registration_path(shop), type:"button", class:"btn btn-default" %></li>
+      <li><%= link_to '投稿', new_post_path, type:"button", class:"btn btn-primary" %></li>
+    </ul>
+  <% end %>
+<% end %>

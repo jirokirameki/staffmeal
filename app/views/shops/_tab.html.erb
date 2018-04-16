@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs list-inline">
+	<li class="<%= 'active' if current_page?(shop_path(shop)) %> list-inline-item">
+	  <%= link_to shop_path(shop) do %>投稿 <span class="badge"></span><% end %>
+	</li>
+	<li class="<%= 'active' if current_page?(offer_shop_path(shop)) %> list-inline-item">
+	  <%= link_to offer_shop_path(shop) do %>募集要項 <span class="badge"></span><% end %>
+  </li>
+	<li class="<%= 'active' if current_page?(info_shop_path(shop)) %> list-inline-item">
+	  <%= link_to info_shop_path(shop) do %>基本情報 <span class="badge"></span><% end %>
+  </li>
+</ul>

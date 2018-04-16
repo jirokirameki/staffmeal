@@ -1,0 +1,25 @@
+<div style="padding: 10px;">
+  <%= render 'shops/header', shop: @shop %>
+  
+  <%= render 'shops/tab', shop: @shop %>
+
+  <div class="table-responsive" style="margin-top:10px;">
+    <table class="table table-striped">
+      <tr>
+        <th>会社名</th><td><%= @shop.company_name %></td>
+      </tr>
+      <tr>
+        <th>URL</th><td><%= @shop.url %></td>
+      </tr>
+      <tr>
+        <th>TEL</th><td><%= @shop.tel %></td>
+      </tr>
+      <tr>
+        <th>EMAIL</th><td><%= @shop.email %></td>
+      </tr>
+      <tr>
+        <th>担当者</th><td><%= @shop.staff_name %></td>
+      </tr>
+    </table>
+  </div>
+</div>
