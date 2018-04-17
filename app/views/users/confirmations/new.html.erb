@@ -4,7 +4,7 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :email,"メールアドレス" %><br />
+    <%= f.label :email, 'メールアドレス' %><br />
     <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 
@@ -13,4 +13,4 @@
   </div>
 <% end %>
 
-<%= render "shops/shared/links" %>
+<%= render "users/shared/links" %>

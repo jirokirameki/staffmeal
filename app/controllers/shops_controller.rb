@@ -1,7 +1,10 @@
 class ShopsController < ApplicationController
-  before_action :authenticate_shop!, except: [:show, :shop_info, :offer, :company_info]
+  before_action :authenticate_shop!, except: [:index, :show, :shop_info, :offer, :company_info]
   # before_save :geocode_full_address
-  
+
+  def index
+  end
+
   def show
     @shop = Shop.find(params[:id])
   end

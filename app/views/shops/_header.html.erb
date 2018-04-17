@@ -4,6 +4,7 @@
     <ul class="list-inline">
       <li><%= link_to 'プロフィール編集', edit_shop_registration_path(shop), type:"button", class:"btn btn-default" %></li>
       <li><%= link_to '投稿', new_post_path, type:"button", class:"btn btn-primary" %></li>
+      <li><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete, type:"button", class:"btn btn-danger"  %></li>
     </ul>
   <% end %>
 <% end %>

@@ -14,12 +14,22 @@ ja:
         shop_name: 店名
         company_name: 会社名
         staff_name: 担当者名
-        email: 担当者メールアドレス
-        tel: 担当者電話番号
+        email: メールアドレス
+        tel: 電話番号
         url: 会社HPアドレス
         password: パスワード
         password_confirmation: パスワード（確認）
         current_password: 現在のパスワード
+      
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前（またはニックネーム）
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        current_password: 現在のパスワード        
           
   date:
     abbr_day_names:

@@ -9,15 +9,20 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-left" href="/"><img src="/images/logo.png" alt="staffmeal"></a>
+      <% if shop_signed_in? %>
+        <%= link_to 'マイページ', shop_path(current_shop) %>
+      <% else %>
+        <%= link_to 'お店の方はコチラ', shops_path %>
+      <% end %>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <% if shop_signed_in? %>
-            <li><%= link_to 'プロフィール', shop_path(current_shop) %></li>
-            <li><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'プロフィール', user_path(current_user) %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to '無料利用登録', new_shop_registration_path %></li>
-            <li><%= link_to 'ログイン', new_shop_session_path %></li>
+            <li><%= link_to '無料利用登録', new_user_registration_path %></li>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
           <% end %>
         </ul>
       </div>

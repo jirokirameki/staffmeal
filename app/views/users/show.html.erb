@@ -1,0 +1,14 @@
+<div style="padding: 10px;">
+  <p><%= @user.name %></p>
+  <% if user_signed_in? %>
+    <% if @user.id == current_user.id %>
+      <ul class="list-inline">
+        <li><%= link_to 'プロフィール編集', edit_user_registration_path(@user), type:"button", class:"btn btn-default" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, type:"button", class:"btn btn-danger"  %></li>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <p style="margin-top: 10px;">あなたがいいね！した投稿</p>
+  <!--likeテーブル実装後にlikeした一覧を3x3表示修正↓-->
+</div>
