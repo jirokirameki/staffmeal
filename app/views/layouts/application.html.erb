@@ -31,16 +31,16 @@
   <body>
     <%= render 'layouts/header' %>
 
-    <%= yield :cover %>
-
     <div class='container'>
+      <div class='sidebar-left'>
+        左サイドバー
+      </div>      
       <div class='main'>
         <%= render 'layouts/flash_messages' %>
         <%= yield %>
       </div>
-      
-      <div class='sidebar'>
-        サイドバーエリア
+      <div class='sidebar-right'>
+        右サイドバー
       </div>
     </div>
 

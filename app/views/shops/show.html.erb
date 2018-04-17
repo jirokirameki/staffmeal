@@ -1,8 +1,10 @@
-<div style="padding: 10px;">
+<div class="shop-show">
   <%= render 'shops/header', shop: @shop %>
   
   <%= render 'shops/tab', shop: @shop %>
   
-  <p style="margin-top: 10px;">いいね！数xx,xxx件｜フォロワー数xxx人</p>
-  <%= render 'posts/posts', posts: @shop.posts %>
+  <div class="shop-main">
+    <p>いいね！数xx,xxx件｜フォロワー数xxx人</p>
+    <%= render 'posts/posts', posts: @shop.posts %>
+  </div>
 </div>

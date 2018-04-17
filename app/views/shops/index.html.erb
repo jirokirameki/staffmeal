@@ -1,10 +1,12 @@
-<p>作成中</p>
-<p>お店勧誘のLPのイメージ</p>
-<p>ここにお店側の新規会員登録とログインなどの情報を集める</p>
-
-<% unless shop_signed_in? %>
-  <ul>
-    <li><%= link_to '無料利用登録', new_shop_registration_path %></li>
-    <li><%= link_to 'ログイン', new_shop_session_path %></li>
-  <ul>
-<% end %>
+<div class="shop-index">
+  <p>作成中</p>
+  <p>お店勧誘のLPのイメージ</p>
+  <p>ここにお店側の新規会員登録とログインなどの情報を集める</p>
+  
+  <% unless shop_signed_in? %>
+    <ul>
+      <li><%= link_to '無料利用登録', new_shop_registration_path %></li>
+      <li><%= link_to 'ログイン', new_shop_session_path %></li>
+    <ul>
+  <% end %>
+</div>

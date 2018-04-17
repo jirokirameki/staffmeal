@@ -6,7 +6,6 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-
     models:
       shop: お店
     attributes:
@@ -20,7 +19,6 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認）
         current_password: 現在のパスワード
-      
     models:
       user: ユーザー
     attributes:
@@ -29,8 +27,12 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード（確認）
-        current_password: 現在のパスワード        
-          
+        current_password: 現在のパスワード
+    models:
+      post: 投稿
+    attributes:
+      post:
+        comment: コメント
   date:
     abbr_day_names:
     - 日
@@ -227,13 +229,3 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
-    
-    # models:
-    #   devise/shop: お店
-    # attributes:
-    #   devise/shop:
-    #     id: ID
-    #     email: メールアドレス
-    #     created_at: 登録日時
-    #     updated_at: 更新日時
-    #     password: パスワード    

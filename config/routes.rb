@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  
   devise_for :users, module: :users
-  resources :users, only: [:show]  
+  resources :users, only: [:show] do
+    member do
+      get :likes
+    end
+  end   
   
   devise_for :shops, module: :shops
   resources :shops, only: [:show] do
@@ -14,4 +19,6 @@ Rails.application.routes.draw do
   
   root to: 'posts#index'  
   resources :posts
+  
+  resources :likes, only: [:create, :destroy]
 end
