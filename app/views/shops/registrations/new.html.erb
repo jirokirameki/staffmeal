@@ -1,6 +1,18 @@
 <h2>無料ご利用登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <form class="h-adr">
+      <span class="p-country-name" style="display:none;">Japan</span>
+
+      〒<input type="text" class="p-postal-code" size="3" maxlength="3">
+      <input type="text" class="p-postal-code" size="4" maxlength="4"><br>
+
+      <input type="text" class="p-region" readonly /><br>
+      <input type="text" class="p-locality" readonly /><br>
+      <input type="text" class="p-street-address" /><br>
+      <input type="text" class="p-extended-address" />
+    </form>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'h-adr'}) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="form-group">

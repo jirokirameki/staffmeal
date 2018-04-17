@@ -151,6 +151,11 @@ footer td + td {
   height: auto;
 }
 
+#map {
+  width: 100%;
+  height: auto;
+}
+
 /* レスポンシブ（ワイドな順に設定） */
 @media screen and (min-width:1200px) {
 	/*　画面サイズが1200px以上の場合、ここのスタイルを読み込む　*/

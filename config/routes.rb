@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :shops, module: :shops
   resources :shops, only: [:show] do
     member do
+      get :shop_info
       get :offer
-      get :info
+      get :company_info
     end
   end
   # root to: 'toppages#index'
