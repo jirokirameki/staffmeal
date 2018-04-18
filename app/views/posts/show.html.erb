@@ -1,6 +1,5 @@
 <!--post-header-->
-<div class="post-header">
-  <p class="shop-name"><%= link_to @post.shop.shop_name, shop_path(@post.shop) %></p>
+<div class="admin-menu">
   <% if shop_signed_in? %>
     <% if @post.shop.id == current_shop.id %>
       <ul class="list-inline">
@@ -8,27 +7,6 @@
         <li><%= link_to '削除', @post, type:"button", class:"btn btn-danger", method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></li>
       </ul>
     <% end %>
-  <% end %> 
+  <% end %>
 </div>
-
-<!-- post-img -->
-<% if @post.image? %>
-  <%= image_tag @post.image.url, class: 'full-width' %>
-<% end %>
-
-<!--post-main-->
-<div class="post-main">
-  <ul>
-    <li><%= render 'likes/like_button', post: @post %></li>
-    
-    <li class="far fa-comment fa-2x fa-fw"></li>
-    <!--<li class="fas fa-comment fa-2x fa-fw"></li>-->
-  </ul>
-  <p>いいね！xx,xxx件</p>
-  
-  <!--comment-area-->
-  <div class="comment-area">
-    <p><span class="name"><%= @post.shop.shop_name %></span> <%= @post.comment %></p>
-    <p class="created_at"><%= @post.created_at %></p>
-  </div>
-</div>
+<%= render 'posts/post', post: @post %>

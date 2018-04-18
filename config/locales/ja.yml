@@ -8,6 +8,8 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       shop: お店
+      user: ユーザー
+      post: 投稿
     attributes:
       shop:
         shop_name: 店名
@@ -19,18 +21,14 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認）
         current_password: 現在のパスワード
-    models:
-      user: ユーザー
-    attributes:
+        remember_me: 次回から自動的にログイン
       user:
         name: 名前（またはニックネーム）
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード（確認）
         current_password: 現在のパスワード
-    models:
-      post: 投稿
-    attributes:
+        remember_me: 次回から自動的にログイン        
       post:
         comment: コメント
   date:

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  validates :name, presence: true, length: { maximum: 50 }
+  
   has_many :likes
   has_many :posts, through: :likes
 

@@ -1,0 +1,7 @@
+<ul>
+  <% posts.each do |post| %>
+    <% if post.image? %>
+      <%= render 'posts/post', post: @post %>
+    <% end %>
+  <% end %>
+</ul>

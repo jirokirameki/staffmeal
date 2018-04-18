@@ -88,14 +88,17 @@ footer td + td {
   color: red;
 }
 
-.media-list {
+.media-grid {
   list-style-type: none;
   margin: 0;
   padding: 0;
   font-size: 0;
+  
+  /*background-color: #fff;*/
+  /*opacity: 0.8;*/
 }
 
-.media-list li {
+.media-grid li {
   display: inline-block;
   
   width : 33.33333% ;  /* 未対応ブラウザ用フォールバック */
@@ -109,10 +112,13 @@ footer td + td {
 	background-size:cover;
   border-right: 2px solid #fff;
 	border-bottom: 2px solid #fff;
+	/*margin-bottom: 30px;*/
 	box-sizing: border-box;
+	
+	border-radius: 5px;
 }
 
-.media-list a:nth-of-type(3n) li {
+.media-grid a:nth-of-type(3n) li {
   border-right: none;
 }
 
@@ -148,7 +154,7 @@ footer td + td {
 
 .shop-show, .shop-new, .shop-edit, .shop-login, .shop-index, .user-new, .user-edit, .user-login,
 .post-header, .post-main, .title-area, .post-form, .shop-confirm, .shop-re-pass, .shop-change-pass, .shop-re-mail,
-.user-confirm, .user-re-pass, .user-change-pass, .user-re-mail, .user-show {
+.user-confirm, .user-re-pass, .user-change-pass, .user-re-mail, .user-show, .admin-menu {
   padding: 10px;
 }
 
@@ -217,13 +223,13 @@ footer td + td {
 }
 @media screen and (min-width:992px) and ( max-width:1199px) {
 	/*　画面サイズが992px～1199pxの間は、ここのスタイルを読み込む　*/
-	.media-list li {
+	.media-grid li {
 	  height: 200px;
 	}
 }
 @media screen and (min-width:480px) and ( max-width:991px) {
 	/*　画面サイズが480px～991pxの間は、ここのスタイルを読み込む　*/
-	.media-list li {
+	.media-grid li {
 	  height: 150px;
 	}
 }
@@ -238,11 +244,35 @@ footer td + td {
 }
 @media screen and (max-width:479px) { 
 	/*　画面サイズが479px以下の場合、ここのスタイルを読み込む　*/
-	.media-list li {
+	.media-grid li {
 	  height: 100px;
 	}
 }
 
-
-
+#pageTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+#pageTop i {
+  padding-top: 6px
+  /*line-height: 24px;*/
+}
+#pageTop a {
+  display: block;
+  z-index: 999;
+  padding-top: 7px;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  background-color: #9FD6D2;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+#pageTop a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
 

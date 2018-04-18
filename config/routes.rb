@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  # root to: 'toppages#index' 
+  
   devise_for :users, module: :users
   resources :users, only: [:show] do
     member do

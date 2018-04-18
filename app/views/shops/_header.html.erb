@@ -1,13 +1,13 @@
-<p class="shop-name"><%= shop.shop_name %></p>
 <% if shop_signed_in? %>
   <% if shop.id == current_shop.id %>
-    <ul class="list-inline">
+    <ul class="list-inline" style="margin:10px 0">
       <li><%= link_to 'プロフィール編集', edit_shop_registration_path(shop), type:"button", class:"btn btn-default" %></li>
       <li><%= link_to '投稿', new_post_path, type:"button", class:"btn btn-primary" %></li>
       <li><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete, type:"button", class:"btn btn-danger"  %></li>
     </ul>
   <% end %>
 <% end %>
-<div style='background-color: #dddddd; margin:10px; padding:10px;'>
+<p class="shop-name"><%= shop.shop_name %></p>
+<div style='background-color: #dddddd; margin:10px 0; padding:10px;'>
   <p>お店からのお知らせエリア（掲載期間を編集画面で設定可能にする）</p>
 </div>

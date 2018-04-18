@@ -1,4 +1,10 @@
 <div class="post-header">
   <p style="text-align: right;"><%= Time.now.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %></p>
 </div>
-<%= render 'posts/posts', posts: @posts %>
+<ul>
+  <% @posts.each do |post| %>
+    <% if post.image? %>
+      <%= render 'posts/post', post: post %>
+    <% end %>
+  <% end %>
+</ul>

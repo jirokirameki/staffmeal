@@ -1,0 +1,25 @@
+<div class="post-header">
+  <p class="shop-name"><%= link_to post.shop.shop_name, shop_path(post.shop) %></p>
+</div>
+
+<!-- post-img -->
+<% if post.image? %>
+  <%= image_tag post.image.url, class: 'full-width' %>
+<% end %>
+
+<!--post-main-->
+<div class="post-main">
+  <ul>
+    <li><%= render 'likes/like_button', post: post %></li>
+    
+    <li class="far fa-comment fa-2x fa-fw"></li>
+    <!--<li class="fas fa-comment fa-2x fa-fw"></li>-->
+  </ul>
+  <p>いいね！xx,xxx件</p>
+  
+  <!--comment-area-->
+  <div class="comment-area">
+    <p><span class="name"><%= post.shop.shop_name %></span> <%= post.comment %></p>
+    <p class="created_at"><%= post.created_at %></p>
+  </div>
+</div>

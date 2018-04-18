@@ -1,16 +1,16 @@
 <div class="user-show">
-  <p><%= @user.name %></p>
   <% if user_signed_in? %>
     <% if @user.id == current_user.id %>
-      <ul class="list-inline">
+      <ul class="list-inline" style="margin:10px 0">
         <li><%= link_to 'プロフィール編集', edit_user_registration_path(@user), type:"button", class:"btn btn-default" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, type:"button", class:"btn btn-danger"  %></li>
       </ul>
     <% end %>
   <% end %>
 
+  <p><%= @user.name %>さん</p>
   <div class="user-main">
-    <p style="margin-top: 10px;">あなたがいいね！した投稿</p>
-    <%= render 'posts/posts', posts: @user.posts %>
+    <p style="margin-top: 10px;"><%= @user.name %>さんがいいね！した投稿</p>
+    <%= render 'posts/posts-grid', posts: @user.posts %>
   </div>
 </div>
