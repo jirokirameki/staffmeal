@@ -3,6 +3,9 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all.order('created_at DESC')
+    # @posts = Post.includes(:like).order('likes.user_id DESC')
+    # binding.pry
+    # rank
   end
 
   def show
@@ -52,6 +55,10 @@ class PostsController < ApplicationController
   end
   
   private
+  
+  # def rank
+  #   @rank = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+  # end  
 
   # Strong Parameter
   def post_params

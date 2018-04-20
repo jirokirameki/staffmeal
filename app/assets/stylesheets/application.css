@@ -24,7 +24,6 @@ body {
   overflow: hidden;
   float: left;
 }
-
 .title-area a + a {
   margin-left: 20px;
 }
@@ -32,7 +31,6 @@ body {
 footer {
   margin-top: 40px;
 }
-
 footer td {
   background-color: #fff;
   
@@ -43,7 +41,6 @@ footer td {
 	font-weight: bold;
 	text-align: center;
 }
-
 footer td + td {
   border-left: 2px solid #dddddd;
 }
@@ -53,6 +50,10 @@ footer td + td {
   overflow: hidden;
 }
 
+.main {
+  float: left;
+  width: 60%;  /* デフォルト値　*/
+}
 .sidebar-left {
   float: left;
   width: 15%;  /* デフォルト値　*/
@@ -60,12 +61,6 @@ footer td + td {
   /*後で消す*/
   background-color: #808080;
 }
-
-.main {
-  float: left;
-  width: 60%;  /* デフォルト値　*/
-}
-
 .sidebar-right {
   float: right;
   width: 25%;  /* デフォルト値　*/
@@ -84,10 +79,6 @@ footer td + td {
   height: 40px;
 }
 
-.required {
-  color: red;
-}
-
 .media-grid {
   list-style-type: none;
   margin: 0;
@@ -97,7 +88,6 @@ footer td + td {
   /*background-color: #fff;*/
   /*opacity: 0.8;*/
 }
-
 .media-grid li {
   display: inline-block;
   
@@ -117,9 +107,12 @@ footer td + td {
 	
 	border-radius: 5px;
 }
-
 .media-grid a:nth-of-type(3n) li {
   border-right: none;
+}
+
+.required {
+  color: red;
 }
 
 .relative {
@@ -140,7 +133,6 @@ footer td + td {
 .shop-main, .user-main {
   padding: 10px 0;
 }
-
 .shop_info {
   font-size: 10px;
   font-weight: bold;
@@ -161,15 +153,12 @@ footer td + td {
 .shop-edit .links ul {
   overflow: hidden;
 }
-
 .shop-edit .links li {
   float: left;
 }
-
 .shop-edit .links li + li {
   margin-left: 10px;  
 }
-
 .edit_shop {
   margin-bottom: 20px;
 }
@@ -187,8 +176,15 @@ footer td + td {
   font-weight: bold;
 }
 
+.post-main ul {
+  overflow: hidden;
+  margin: 5px 0; 
+}
 .post-main li {
   float: left;
+}
+.post-main li + li {
+  margin-left: 10px;
 }
 
 .comment-area .created_at {
@@ -196,7 +192,6 @@ footer td + td {
   font-size: 10px;
   color: #bbbbbb;
 }
-
 .comment-area .name {
   font-weight: bold;
 }
@@ -216,10 +211,24 @@ footer td + td {
   appearance: none;
 }
 
+#wrapper_sp {
+  display: none;
+}
+#wrapper_pc {
+  display: block;
+  margin-top: 150px;
+
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;  
+}
+#wrapper_pc span {
+  font-size: 50px;
+}
+
 /* レスポンシブ（ワイドな順に設定） */
 @media screen and (min-width:1200px) {
 	/*　画面サイズが1200px以上の場合、ここのスタイルを読み込む　*/
-
 }
 @media screen and (min-width:992px) and ( max-width:1199px) {
 	/*　画面サイズが992px～1199pxの間は、ここのスタイルを読み込む　*/
@@ -238,6 +247,13 @@ footer td + td {
   .main {
 	  width: 100%;
 	}	
+
+  #wrapper_sp {
+    display: block;
+  }
+  #wrapper_pc {
+    display: none;
+  } 
 	.sidebar-left, .sidebar-right {
 	  display: none;
 	}
@@ -275,4 +291,3 @@ footer td + td {
   text-decoration: none;
   opacity: 0.7;
 }
-

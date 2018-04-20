@@ -10,12 +10,11 @@
 <!--post-main-->
 <div class="post-main">
   <ul>
-    <li><%= render 'likes/like_button', post: post %></li>
-    
-    <li class="far fa-comment fa-2x fa-fw"></li>
+    <li id="like-button-<%= post.id%>"><%= render 'likes/like-button', post: post %></li>
+    <li><i class="far fa-comment fa-2x fa-fw"></i></li>
     <!--<li class="fas fa-comment fa-2x fa-fw"></li>-->
   </ul>
-  <p>いいね！xx,xxx件</p>
+  <p id="like-count-<%= post.id%>"><%= render 'likes/like-count', post: post %></p>
   
   <!--comment-area-->
   <div class="comment-area">

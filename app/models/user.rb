@@ -6,11 +6,13 @@ class User < ApplicationRecord
 
   def like(post)
     self.likes.find_or_create_by(post_id: post.id)
+    # self.reload
   end
 
   def unlike(post)
     like = self.likes.find_by(post_id: post.id)
     like.destroy if like
+    # self.reload
   end
 
   def liking?(post)

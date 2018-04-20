@@ -78,3 +78,6 @@ gem 'geocoder'
 
 # GoogleMap用
 gem "gmaps4rails"
+
+# デバッグ用（開発環境のみ）
+gem 'better_errors'
