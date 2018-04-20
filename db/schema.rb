@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417081943) do
+ActiveRecord::Schema.define(version: 20180420065441) do
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20180417081943) do
     t.string   "tel"
     t.float    "latitude",               limit: 24
     t.float    "longitude",              limit: 24
+    t.integer  "total_like",                        default: 0
     t.index ["confirmation_token"], name: "index_shops_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_shops_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true, using: :btree

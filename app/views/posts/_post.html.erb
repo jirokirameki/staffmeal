@@ -19,6 +19,6 @@
   <!--comment-area-->
   <div class="comment-area">
     <p><span class="name"><%= post.shop.shop_name %></span> <%= post.comment %></p>
-    <p class="created_at"><%= post.created_at %></p>
+    <p class="created_at"><%= post.created_at.strftime('%Y/%m/%d') %></p>
   </div>
 </div>

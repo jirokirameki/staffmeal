@@ -4,7 +4,7 @@
   <%= render 'shops/tab', shop: @shop %>
   
   <div class="shop-main">
-    <p>いいね！数xx,xxx件｜フォロワー数xxx人</p>
+    <p>総いいね！ <%= @shop.total_like %> 件｜フォロワー数xxx人</p>
     <%= render 'posts/posts-grid', posts: @shop.posts %>
   </div>
 </div>

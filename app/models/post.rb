@@ -7,5 +7,9 @@ class Post < ApplicationRecord
   validates :comment, presence: true, length: { maximum: 255 }
   
   has_many :likes
-  has_many :users, through: :likes  
+  has_many :users, through: :likes
+  
+  # 今日の投稿されたPostを取得
+  scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
+  
 end

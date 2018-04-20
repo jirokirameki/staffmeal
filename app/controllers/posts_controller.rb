@@ -2,10 +2,11 @@ class PostsController < ApplicationController
   before_action :authenticate_shop!, only: [:new, :create, :edit, :update, :destroy]
   
   def index
-    @posts = Post.all.order('created_at DESC')
-    # @posts = Post.includes(:like).order('likes.user_id DESC')
-    # binding.pry
-    # rank
+    # debug用
+    # @posts = Post.all.order('created_at DESC')
+    
+    # 総いいね！数による並べ替えを実施するため、まずはshopをいいね数順にソート
+    @shops = Shop.all.order('total_like DESC, created_at DESC')
   end
 
   def show
@@ -55,10 +56,6 @@ class PostsController < ApplicationController
   end
   
   private
-  
-  # def rank
-  #   @rank = Post.find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
-  # end  
 
   # Strong Parameter
   def post_params
