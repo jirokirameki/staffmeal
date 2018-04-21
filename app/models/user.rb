@@ -23,13 +23,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:twitter]         
+         :lockable, :timeoutable, :omniauthable, omniauth_providers: [:twitter]         
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.user_name = auth["info"]["nickname"]
+      user.email = SecureRandom.hex(8) + '@staffmeal.co.jp' # ダミーのメールアドレスを生成
     end
   end
 
@@ -42,4 +43,16 @@ class User < ApplicationRecord
       super
     end
   end
+
+  # providerがある場合（Twitter経由で認証した）はpasswordは要求しないようにする。
+  def password_required?
+    super && provider.blank?
+  end
+  
+  # プロフィールを変更するときによばれる
+  def update_with_password(params, *options)
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
+  end 
 end

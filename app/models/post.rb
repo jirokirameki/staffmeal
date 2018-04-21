@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   validates :shop_id, presence: true
-  validates :comment, presence: true, length: { maximum: 255 }
+  validates :comment, presence: true, length: { maximum: 140 }
   
   has_many :likes
   has_many :users, through: :likes

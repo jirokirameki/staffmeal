@@ -1,0 +1,20 @@
+<div class="user-new">
+  <div style="text-align: center;">
+    <p style="margin-top: 30px"><%= image_tag('title.png', :width => "160px", :height => "40px", :alt => "staffmeal") %></p>
+    <p>キャッチコピー</p>
+
+    <% if devise_mapping.omniauthable? %>
+      <% resource_class.omniauth_providers.each do |provider| %>
+        <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+          <ul style="margin-top: 30px;">
+            <li><%= image_tag('twitter_login.jpg', :width => "60%", :height => "auto", :alt => "twitterでログイン") %></li>
+            <li style="margin-top: 10px;"><a href="#">ユーザー向け利用規約</a></li>
+            <li style="margin-top: 5px;"><a href="#">プライバシーポリシー</a></li>
+            <li style="margin-top: 10px; color: #999;">※許可なくtwitterへ投稿することはありません</li>
+          </ul>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+    

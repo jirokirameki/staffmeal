@@ -14,8 +14,8 @@ ul {
 /* body */
 body {
   /*background: #f2f2f2;*/
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 40px;
+  /*padding-bottom: 50px;*/
   color: #333;
   font-size: 12px;
 }
@@ -73,10 +73,20 @@ footer td + td {
 /* navbar */
 .navbar {
   background-color: #fff;
+  min-height: 40px;
+  padding: 0 10px;
 }
-.navbar-header img {
-  margin-top: 5px;
-  height: 40px;
+.wrapper_nav {
+  overflow: hidden;
+  line-height: 30px;
+}
+.wrapper_nav_second {
+  overflow: hidden;
+  font-size: 10px;
+}
+.wrapper_nav_second li {
+  float: left;
+  margin: 5px 0;
 }
 
 .media-grid {

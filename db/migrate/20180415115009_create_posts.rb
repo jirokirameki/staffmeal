@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration[5.0]
     create_table :posts do |t|
       t.string :comment
       t.references :shop, foreign_key: true
+      t.string :image
 
       t.timestamps
     end

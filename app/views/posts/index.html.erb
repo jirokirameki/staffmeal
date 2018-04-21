@@ -2,7 +2,7 @@
   <p style="text-align: right;"><%= Time.zone.now.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %></p>
 </div>
 <ul>
-  <% if @shops.present? %>
+  <% if @shops.present? %><!-- ←いらない？ -->
     <% @shops.each do |shop| %>
       <!--1post/shop/dayなためlastを付加し限定（投稿側で1post/shop/dayに限定するので本来は不要なはずだが-->
       <% post = shop.posts.created_today.last %>
