@@ -90,3 +90,6 @@ gem 'better_errors'
 group :production do
   gem 'pg', '0.21.0'
 end
+
+# herokuのデバッグ用
+gem 'rails_12factor', group: :production
