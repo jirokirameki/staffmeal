@@ -23,7 +23,7 @@ ja:
         current_password: 現在のパスワード
         remember_me: 次回から自動的にログイン
       user:
-        name: 名前（またはニックネーム）
+        user_name: 名前（またはニックネーム）
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード（確認）

@@ -54,6 +54,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # 認証機能
 gem 'devise'
+# ログイン認証を、複数のプロバイダを通して行うことができる
+gem 'omniauth'
+# Twitter認証機能
+gem 'omniauth-twitter'
 
 # 日本語化
 gem 'rails-i18n'

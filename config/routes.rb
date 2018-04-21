@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   
   # root to: 'toppages#index' 
   
-  devise_for :users, module: :users
+  devise_for :users, module: :users, 
+    path_names: { sign_in: "login", sign_out: "logout"}, 
+    controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: [:show] do
     member do
       get :likes

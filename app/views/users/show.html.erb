@@ -8,9 +8,9 @@
     <% end %>
   <% end %>
 
-  <p><%= @user.name %>さん</p>
+  <p><%= @user.user_name %>さん</p>
   <div class="user-main">
-    <p style="margin-top: 10px;"><%= @user.name %>さんがいいね！した投稿</p>
+    <p style="margin-top: 10px;"><%= @user.user_name %>さんがいいね！した投稿</p>
     <%= render 'posts/posts-grid', posts: @user.posts %>
   </div>
 </div>
