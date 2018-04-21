@@ -85,3 +85,8 @@ gem "gmaps4rails"
 
 # デバッグ用（開発環境のみ）
 gem 'better_errors'
+
+# heroku用
+group :production do
+  gem 'pg', '0.21.0'
+end
