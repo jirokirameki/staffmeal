@@ -11,7 +11,7 @@ class Shop < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :lockable, :timeoutable, :confirmable
+         :lockable, :timeoutable
 
   has_many :posts
 end
