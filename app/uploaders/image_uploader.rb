@@ -66,6 +66,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
 
+  # 初期値の設定
+  # def default_url
+  #   "default-shop_img.jpg"
+  # end
+
  # ファイル名は日本語が入ってくると嫌なので、下記のようにしてみてもいい。
  # 日付(20131001.jpgみたいなファイル名)で保存する
   # def filename

@@ -30,6 +30,8 @@ class User < ApplicationRecord
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.user_name = auth["info"]["nickname"]
+      user.location = auth["info"]["location"]
+      user.image = auth["info"]["image"]
       user.email = SecureRandom.hex(8) + '@staffmeal.co.jp' # ダミーのメールアドレスを生成
     end
   end
@@ -50,9 +52,9 @@ class User < ApplicationRecord
   end
   
   # プロフィールを変更するときによばれる
-  def update_with_password(params, *options)
-    def update_resource(resource, params)
-      resource.update_without_password(params)
-    end
-  end 
+  # def update_with_password(params, *options)
+  #   def update_resource(resource, params)
+  #     resource.update_without_password(params)
+  #   end
+  # end 
 end

@@ -1,16 +1,25 @@
-<div class="user-show">
-  <% if user_signed_in? %>
-    <% if @user.id == current_user.id %>
-      <ul class="list-inline" style="margin:10px 0">
-        <li><%= link_to 'プロフィール編集', edit_user_registration_path(@user), type:"button", class:"btn btn-default" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, type:"button", class:"btn btn-danger"  %></li>
-      </ul>
-    <% end %>
+<% if user_signed_in? %>
+  <% if @user.id == current_user.id %>
+    <p class="user-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></p>
   <% end %>
-
-  <p><%= @user.user_name %>さん</p>
-  <div class="user-main">
-    <p style="margin-top: 10px;"><%= @user.user_name %>さんがいいね！した投稿</p>
-    <%= render 'posts/posts-grid', posts: @user.posts %>
-  </div>
+<% end %>
+<div class="container">
+  <ul class="list-inline">
+    <% if @user.image? %>
+      <li class="user-image"><%= image_tag @user.image %></li>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if @user.id == current_user.id %>
+        <li class="user-prof-edit">
+          <%= link_to 'プロフィール編集', edit_user_registration_path(@user), type:"button", class:"btn btn-default" %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <p class="user-name">
+    <%= @user.user_name %> さん<% if @user.location? %> @ <%= @user.location %><% end %>
+  </p>
 </div>
+
+<%= render 'users/tabs', user: @user %>
+<%= render 'posts/posts-grid', posts: @user.posts %>

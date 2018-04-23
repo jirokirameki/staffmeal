@@ -1,0 +1,14 @@
+<ul class="tabs">
+	<li class="<%= 'active' if current_page?(shop_path(shop)) %>">
+	  <%= link_to shop_path(shop) do %>まかない<span class="badge"></span><% end %>
+	</li>
+	<li class="<%= 'active' if current_page?(job_offer_shop_path(shop)) %>">
+	  <%= link_to job_offer_shop_path(shop) do %>JobOffer<span class="badge"></span><% end %>
+	</li>		
+	<li class="<%= 'active' if current_page?(story_shop_path(shop)) %>">
+	  <%= link_to story_shop_path(shop) do %>STORY<span class="badge"></span><% end %>
+	</li>
+	<li class="<%= 'active' if current_page?(info_shop_path(shop)) %>">
+	  <%= link_to info_shop_path(shop) do %>Info<span class="badge"></span><% end %>
+	</li>
+</ul>

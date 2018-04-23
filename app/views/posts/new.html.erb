@@ -1,1 +1,38 @@
-<%= render 'form', post: @post %>
+<p class="shop-name"><%= current_shop.shop_name %></p>
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <!-- 追加箇所 開始 -->
+  <div class="form-group">
+    <div class="imagePreview"></div>
+
+    <div class="input-group container">
+      <label class="input-group-btn">
+        <span class="btn btn btn-primary">
+          写真を選択<%= f.file_field :image, :accept => 'image/*', :capture => "camera", :id => "upfile", :style => "display:none;" %>
+        </span>
+      </label>
+      <input type="text" class="form-control" style="height: 30.8px; padding: 2px 12px;" readonly="">
+    </div>
+    <%= f.hidden_field :image_cache, class: 'form-control' %>
+  </div>
+  <!-- 追加箇所 終了 -->
+  
+  <div class="form-group container">
+    <%= f.text_area :comment, rows: 8, class: 'form-control', :maxlength => "140", placeholder: 'コメントを最大140文字まで入力できます' %>
+  </div>
+    
+  <div class="actions container">
+    <%= f.submit "投稿", class: 'btn btn-success' %>
+    <%= link_to "戻る", :back, :class => 'btn btn-default' %>
+  </div>
+<% end %>

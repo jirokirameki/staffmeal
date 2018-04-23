@@ -11,5 +11,4 @@ class Post < ApplicationRecord
   
   # 今日の投稿されたPostを取得
   scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
-  
 end

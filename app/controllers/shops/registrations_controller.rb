@@ -42,20 +42,20 @@ class Shops::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:shop_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:company_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:url])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:staff_name])  
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:tel])
+    devise_parameter_sanitizer.permit(:sign_up, 
+    keys: [:shop_name, :makanai, :phone_number, :shop_type, :open_hours_lunch, :open_hours_dinner, :closed_days,
+    :post_code, :prefecture, :city, :street, :building, :near_station,
+    :shop_info_url, :image, :image_cache, :remove_image,
+    :price_range_lunch, :price_range_dinner, :other])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:shop_name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:company_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:url])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:staff_name])  
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:tel])
+    devise_parameter_sanitizer.permit(:account_update, 
+    keys: [:shop_name, :makanai, :phone_number, :shop_type, :open_hours_lunch, :open_hours_dinner, :closed_days,
+    :post_code, :prefecture, :city, :street, :building, :near_station,
+    :shop_info_url, :image, :image_cache, :remove_image,
+    :price_range_lunch, :price_range_dinner, :other])
   end
 
   # The path used after sign up.
@@ -67,4 +67,8 @@ class Shops::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 end

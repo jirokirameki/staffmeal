@@ -1,24 +1,23 @@
-<div class="post-header">
-  <p class="shop-name"><%= link_to post.shop.shop_name, shop_path(post.shop) %></p>
-</div>
+<p class="shop-name"><%= link_to post.shop.shop_name, shop_path(post.shop) %>
+  <% if post.shop.makanai? %>
+    &nbsp;&nbsp;<i class="fas fa-utensils makanai"></i>
+  <% end %>
+</p>
 
 <!-- post-img -->
 <% if post.image? %>
   <%= image_tag post.image.url, class: 'full-width' %>
 <% end %>
 
-<!--post-main-->
-<div class="post-main">
-  <ul>
-    <li id="like-button-<%= post.id%>"><%= render 'likes/like-button', post: post %></li>
-    <li><i class="far fa-comment fa-2x fa-fw"></i></li>
-    <!--<li class="fas fa-comment fa-2x fa-fw"></li>-->
-  </ul>
-  <p id="like-count-<%= post.id%>"><%= render 'likes/like-count', post: post %></p>
+<%= simple_format(post.comment, :class => "post-comment") %>
+<ul class="post-icons">
+  <li>
+    <i class="far fa-comment fa-fw" style="font-size: 2.4rem; color: #777;"></i>
+    <span id="comment-count-<%= post.id%>" style="line-height: 25px; font-size: 1.2rem; color: #777;">0</span>
+  </li>
+  <!--<li class="fas fa-comment fa-2x fa-fw"></li>-->
+
+  <li id="like-button-<%= post.id%>"><%= render 'likes/like-button', post: post %></li>
   
-  <!--comment-area-->
-  <div class="comment-area">
-    <p><span class="name"><%= post.shop.shop_name %></span> <%= post.comment %></p>
-    <p class="created_at"><%= post.created_at.strftime('%Y/%m/%d') %></p>
-  </div>
-</div>
+  <li><a href="#"><i class="fab fa-twitter" style="font-size: 2.4rem; color: #777;"></i></a></li>
+</ul>

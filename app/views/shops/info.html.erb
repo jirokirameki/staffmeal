@@ -1,0 +1,83 @@
+<p>
+  <% if @shop.image? %>
+    <%= image_tag @shop.image.url, :class => "full-width" %>
+  <% else %>
+    <%= image_tag 'default-shop_img.jpg', :class => "full-width" %>
+  <% end %>
+</p>
+<%= render 'shops/header', shop: @shop %>
+<%= render 'shops/tabs', shop: @shop %>
+
+<p class="shop-info-title">お店情報</p>
+<% if shop_signed_in? %>
+  <% if @shop.id == current_shop.id %>
+    <ul class="shop-admin-menu list-inline">
+      <li class="shop-prof-edit"><%= link_to '基本情報の編集', edit_shop_registration_path(@shop), type:"button", class:"btn btn-default" %></li>
+    </ul>
+  <% end %>
+<% end %>
+  
+<table class="table shop-info">
+  <tr>
+    <th>電話番号</th>
+    <td>
+      <% if @shop.phone_number? %>
+        <a href="tel:<%= @shop.phone_number %>"><%= @shop.phone_number %></a>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>営業時間</th>
+    <td>
+      <% if @shop.open_hours_lunch? %>
+        <i class="fas fa-sun"></i>&nbsp;<%= @shop.open_hours_lunch %>&nbsp;&nbsp;
+      <% end %>
+      <% if @shop.open_hours_dinner? %>
+        <i class="fas fa-moon"></i>&nbsp;<%= @shop.open_hours_dinner %>
+      <% end %>      
+    </td>
+  </tr>
+  <tr>
+    <th>定休日</th>
+    <td>
+      <% if @shop.closed_days? %>
+        <%= @shop.closed_days %>
+      <% end %>      
+    </td>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td>
+      <% if @shop.prefecture? && @shop.city? && @shop.street? %>
+        <a href="#"><%= @shop.prefecture %><%= @shop.city %><%= @shop.street %><%= @shop.building %></a>
+      <% end %>  
+    </td>
+  </tr>
+  <tr>
+    <th>平均予算</th>
+    <td>
+      <% if @shop.price_range_lunch? %>
+        <i class="fas fa-sun"></i>&nbsp;<%= @shop.price_range_lunch %>&nbsp;&nbsp;
+      <% end %>
+      <% if @shop.price_range_dinner? %>
+        <i class="fas fa-moon"></i>&nbsp;<%= @shop.price_range_dinner %>
+      <% end %>          
+    </td>
+  </tr>
+  <tr>
+    <th>お店の詳細</th>
+    <td>
+      <% if @shop.shop_info_url? %>
+        <a href="<%= @shop.shop_info_url %>"><%= @shop.shop_info_url %></a>
+      <% end %>       
+    </td>
+  </tr>  
+  <tr>
+    <th>その他</th>
+    <td>
+      <% if @shop.other? %>
+        <%= simple_format(@shop.other) %>
+      <% end %>        
+    </td>
+  </tr>
+</table>

@@ -7,6 +7,8 @@ class Shop < ApplicationRecord
   # validates :staff_name, presence: true, length: { maximum: 50 }
   # validates :tel, presence: true, length: { maximum: 50 }
   
+  mount_uploader :image, ImageUploader
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -22,7 +22,9 @@ class LikesController < ApplicationController
     
     # 総いいね！数を-1
     shop = Shop.find(@post.shop_id)
-    shop.total_like = shop.total_like - 1
+    if shop.total_like > 0
+      shop.total_like = shop.total_like - 1
+    end
     shop.save
     
     respond_to do |format|

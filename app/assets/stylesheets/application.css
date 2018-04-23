@@ -1,75 +1,76 @@
 @charset "utf-8";
 
-/*初期化*/
+/********** Initialization **********/
+h1,h2,h3,h4,h5,h6 {
+  font-size: 100%;
+}
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+body {
+  padding-top: 40px;
+  color: #333;
+  font-size: 1.4em;
+}
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-
-.btn {
-  font-size: 12px;
+label {
+  font-size: 1.0rem;
+  color: #999;
+  margin-left: 1px;
 }
-
-/* body */
-body {
-  /*background: #f2f2f2;*/
-  padding-top: 40px;
-  /*padding-bottom: 50px;*/
-  color: #333;
-  font-size: 12px;
-}
-
-.title-area {
-  overflow: hidden;
-  float: left;
-}
-.title-area a + a {
-  margin-left: 20px;
-}
-
-footer {
-  margin-top: 40px;
-}
-footer td {
-  background-color: #fff;
-  
-	filter:alpha(opacity=70);
-	-moz-opacity: 0.7;
-	opacity: 0.7;
-	
-	font-weight: bold;
-	text-align: center;
-}
-footer td + td {
-  border-left: 2px solid #dddddd;
-}
-
-.container {
+/*すべてのstyleを削除*/
+.clear-css {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
   padding: 0;
-  overflow: hidden;
+  appearance: none;
+}
+#wrapper_sp {
+  display: none;
+}
+#wrapper_pc {
+  display: block;
+  margin-top: 150px;
+
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;  
+}
+.btn {
+  font-size: 1.2rem;
+}
+.required {
+  color: red;
+}
+.full-width {
+  width: 100%;
+  height: auto;
+}
+.makanai {
+  color: #FF9933;
+}
+/************** placeholder **************/
+::-webkit-input-placeholder {
+  font-size: 1.2rem;  
+}
+::-moz-placeholder {
+  font-size: 1.2rem;  
+}
+::-moz-placeholder {
+  font-size: 1.2rem;
+}
+::-ms-input-placeholder {
+  font-size: 1.2rem;  
 }
 
-.main {
-  float: left;
-  width: 60%;  /* デフォルト値　*/
-}
-.sidebar-left {
-  float: left;
-  width: 15%;  /* デフォルト値　*/
-  
-  /*後で消す*/
-  background-color: #808080;
-}
-.sidebar-right {
-  float: right;
-  width: 25%;  /* デフォルト値　*/
-  
-  /*後で消す*/
-  background-color: #87CEFA;
-}
-
-
+/************** header **************/
 /* navbar */
 .navbar {
   background-color: #fff;
@@ -82,17 +83,190 @@ footer td + td {
 }
 .wrapper_nav_second {
   overflow: hidden;
-  font-size: 10px;
+  font-size: 1.1rem;
 }
 .wrapper_nav_second li {
   float: left;
   margin: 5px 0;
 }
 
+
+/************** _flash_messages **************/
+.alert {
+  font-size: 1.2rem;
+}
+
+
+
+/************** footer **************/
+footer {
+  margin-top: 50px;
+  background-color: #eee;
+  height: 200px;
+  
+  position: relative;
+}
+.copyright {
+  text-align: center;
+  font-size: 1.0rem;
+  
+  width:100%;
+  text-align:center;
+  position: absolute;
+  bottom: 0;
+}
+
+
+.container {
+  padding: 0;
+  margin: 10px;
+}
+
+/*　pageTop　*/
+#pageTop {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  margin: 0;
+}
+#pageTop i {
+  padding-top: 6px;
+  /*line-height: 24px;*/
+}
+#pageTop a {
+  display: block;
+  z-index: 999;
+  padding-top: 12px;
+  border-radius: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #9FD6D2;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+#pageTop a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+/*　camera　*/
+#camera {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  margin: 0;  
+}
+#camera i {
+  padding-top: 6px;
+  /*line-height: 24px;*/
+}
+#camera a {
+  display: block;
+  z-index: 999;
+  padding-top: 12px;
+  border-radius: 30px;
+  width: 50px;
+  height: 50px;
+  /*background-color: #9FD6D2;*/
+  background-color: #337ab7;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+#camera a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+
+/************** posts/index **************/
+.today {
+  text-align: right;
+  font-size: 1.1rem;
+  color: #777;
+  margin: 10px;
+}
+
+
+/************** posts/_post **************/
+.shop-name {
+  font-weight: bold;
+  margin: 10px;  
+}
+.post-comment {
+  font-size: 1.2rem;
+  margin: 10px; 
+}
+.post-icons {
+  display: table;
+  table-layout: fixed;
+  width: 70%;
+  margin: 10px 0;
+  margin-left: auto;
+  /*margin: 40px 0 20px 0;*/
+}
+.post-icons li {
+  display:table-cell;
+  text-align: center;
+}
+
+
+/************** shops/show **************/
+.shop-tags {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+.summary {
+  margin: 10px;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+
+.shop-logout a {
+  color: #777;
+  font-size: 1.0rem;
+}
+
+/* shop-admin-menu */
+.shop-admin-menu {
+  margin: 10px 0;
+  text-align: right;
+}
+.shop-prof-edit a {
+  color: #777;
+}
+.shop-logout {
+  margin: 10px;
+  text-align: right;
+}
+
+/* tabs */
+.tabs {
+  display: table;
+  table-layout: fixed;
+  width:100%;
+  margin: 30px 0 20px 0;
+  font-size: 1.2rem;
+}
+.tabs li {
+  display:table-cell;
+  text-align: center;  
+}
+.tabs .active a {
+  border-bottom: 2px solid #ddd;
+  color: #ddd;
+  font-weight: bold;
+}
+
+/* media-grid */
 .media-grid {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  /*padding: 0;*/
   font-size: 0;
   
   /*background-color: #fff;*/
@@ -121,183 +295,210 @@ footer td + td {
   border-right: none;
 }
 
-.required {
-  color: red;
-}
 
-.relative {
-  position: relative;
+/************** shops/job_offer **************/
+.job-offer-article {
+  margin: 10px;
 }
-.absolute {
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  
-  color: #fff;
-}
-
-.list-inline li {
-  padding: 0; 
-}
-
-.shop-main, .user-main {
-  padding: 10px 0;
-}
-.shop_info {
-  font-size: 10px;
+.job-offer-article .title {
   font-weight: bold;
-  color: #333;
-  background-color: #fff;
-  
-	filter:alpha(opacity=70);
-	-moz-opacity: 0.7;
-	opacity: 0.7;  
 }
-
-.shop-show, .shop-new, .shop-edit, .shop-login, .shop-index, .user-new, .user-edit, .user-login,
-.post-header, .post-main, .title-area, .post-form, .shop-confirm, .shop-re-pass, .shop-change-pass, .shop-re-mail,
-.user-confirm, .user-re-pass, .user-change-pass, .user-re-mail, .user-show, .admin-menu {
+.job-offer-article .subtitle {
+  font-weight: bold;
+  color: #777;
+  margin-top: 50px;
+}
+.job-offer-article .paragraph {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+}
+.job-offer-condition-title {
+  background-color: #eee;
   padding: 10px;
+  font-size: 1.0rem;
+  margin-bottom: 0;
+}
+.job-offer-condition {
+  font-size: 1.0rem;  
+}
+.job-offer-condition th {
+  color: #999;
+  font-weight: normal;
 }
 
-.shop-edit .links ul {
-  overflow: hidden;
-}
-.shop-edit .links li {
-  float: left;
-}
-.shop-edit .links li + li {
-  margin-left: 10px;  
-}
-.edit_shop {
-  margin-bottom: 20px;
-}
 
-.full-width {
-  width: 100%;
-  height: auto;
+/************** shops/story **************/
+.story-article {
+  margin: 10px;  
 }
-
-.color-ed4956 {
-  color: #ed4956;
-}
-
-.shop-name {
+.story-article .title {
   font-weight: bold;
 }
+.story-article .subtitle {
+  font-weight: bold;
+  color: #777;
+  margin-top: 50px;
+}
+.story-article .paragraph {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;  
+}
 
-.post-main ul {
-  overflow: hidden;
-  margin: 5px 0; 
+
+/************** shops/info **************/
+.shop-info-title {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 1.0rem;
+  margin-bottom: 0;
 }
-.post-main li {
-  float: left;
+.shop-info {
+  font-size: 1.0rem;
 }
-.post-main li + li {
-  margin-left: 10px;
+.shop-info th {
+  color: #999;
+  font-weight: normal;
+}
+.shop-info tbody {
+  border-bottom: 1px solid #ddd;
+}
+.fa-moon {
+  color: #336aa2;
+}
+.fa-sun {
+  color: #cc8131;
 }
 
-.comment-area .created_at {
+/************** users/_twitter **************/
+.twitter-login-lead {
+  width: 80%;
+  margin: 50px auto 30px;
+}
+.twitter-login-lead p {
+  font-size: 1.2rem;
+}
+.twitter-login-button-area {
+  text-align: center;
+  /*margin-top: 30px;*/
+}
+.terms-of-service {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+.privacy-policy {
+  margin-top: 5px;
+  font-size: 1.2rem;
+}
+.twitter-login-notice {
+  margin-top: 10px;
+  color: #999;
+  font-size: 1.2rem;  
+}
+
+/************** users/show **************/
+.user-image img {
+  border-radius: 50%;
+}
+.user-name {
+  font-size: 1.4rem;
+  /*font-weight: bold;*/
+  margin: 5px 0;
+}
+.user-prof-edit a {
+  color: #777;
+}
+.user-logout {
+  margin: 10px;
   text-align: right;
-  font-size: 10px;
-  color: #bbbbbb;
 }
-.comment-area .name {
-  font-weight: bold;
+.user-logout a {
+  color: #777;
+  font-size: 1.0rem;
 }
 
-#map {
+
+/************** posts/_form **************/
+.existing-img {
+  /*width: 100%;*/
+  /*height: auto;*/
+  background-position: center center;
+  background-size: cover;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.existing-img img {
   width: 100%;
+  height: auto; 
+}
+.imagePreview {
+  width: 100%;
+  /*height: 180px;*/
   height: auto;
-}
-
-/*すべてのstyleを削除*/
-.clear-css {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
-}
-
-#wrapper_sp {
-  display: none;
-}
-#wrapper_pc {
+  background-position: center center;
+  background-size: cover;
+  /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
   display: block;
-  margin-top: 150px;
+  /*display: none;*/
+}
 
-  font-size: 100px;
-  font-weight: bold;
-  text-align: center;  
+/************** posts/show **************/
+.post-admin-menu {
+  margin: 10px;
+  text-align: right;
 }
-#wrapper_pc span {
-  font-size: 50px;
+.post-edit a {
+  color: #777;
 }
+
+/************** users/edit **************/
+.user-prof-edit-wrapper {
+  margin: 10px;
+}
+.user-prof-edit-wrapper p {
+  font-size: 1.2rem;
+}
+
+
+
+
+
 
 /* レスポンシブ（ワイドな順に設定） */
+/*　画面サイズが1200px以上の場合、ここのスタイルを読み込む　*
 @media screen and (min-width:1200px) {
-	/*　画面サイズが1200px以上の場合、ここのスタイルを読み込む　*/
 }
+*/
+/*　画面サイズが992px～1199pxの間は、ここのスタイルを読み込む　*
 @media screen and (min-width:992px) and ( max-width:1199px) {
-	/*　画面サイズが992px～1199pxの間は、ここのスタイルを読み込む　*/
-	.media-grid li {
-	  height: 200px;
-	}
 }
+*/
+/*　画面サイズが480px～991pxの間は、ここのスタイルを読み込む　*/
 @media screen and (min-width:480px) and ( max-width:991px) {
-	/*　画面サイズが480px～991pxの間は、ここのスタイルを読み込む　*/
 	.media-grid li {
 	  height: 150px;
 	}
 }
-@media screen and (max-width:767px) { 
-	/*　画面サイズが767px以下の場合、ここのスタイルを読み込む　*/
-  .main {
-	  width: 100%;
-	}	
-
-  #wrapper_sp {
-    display: block;
-  }
+/*　画面サイズが767px以下の場合、ここのスタイルを読み込む　*/
+@media screen and (max-width:767px) {
   #wrapper_pc {
     display: none;
-  } 
-	.sidebar-left, .sidebar-right {
-	  display: none;
-	}
+  }
+  #wrapper_sp {
+    display: block;
+  }  
 }
+/*　画面サイズが479px以下の場合、ここのスタイルを読み込む　*/
 @media screen and (max-width:479px) { 
-	/*　画面サイズが479px以下の場合、ここのスタイルを読み込む　*/
 	.media-grid li {
 	  height: 100px;
 	}
 }
 
-#pageTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-#pageTop i {
-  padding-top: 6px
-  /*line-height: 24px;*/
-}
-#pageTop a {
-  display: block;
-  z-index: 999;
-  padding-top: 7px;
-  border-radius: 30px;
-  width: 40px;
-  height: 40px;
-  background-color: #9FD6D2;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-}
-#pageTop a:hover {
-  text-decoration: none;
-  opacity: 0.7;
+
+#map {
+  width: 100%;
+  height: auto;
 }

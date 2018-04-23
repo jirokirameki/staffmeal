@@ -1,65 +1,122 @@
-<div class="shop-edit">
-  <p>ご登録内容の変更</p>
-  
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
-    
-    <div class="form-group">
-      <%= f.label :shop_name %><span class="required">（必須）</span><br />
-      <%= f.text_field :shop_name, autofocus: true, class: 'form-control' %>
+<% if shop_signed_in? %>
+  <% if @shop.id == current_shop.id %>
+    <p class="shop-logout"><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %></p>
+  <% end %>
+<% end %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'h-adr' }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <!-- 画像 -->
+  <div class="existing-img">
+    <% if @shop.image? %>
+      <%= image_tag @shop.image.url %>
+    <% else %>
+      <%= image_tag 'default-shop_img.jpg', :class => "full-width" %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <div class="imagePreview" id="testcss"></div>
+    <div class="input-group container">
+      <label class="input-group-btn">
+        <span class="btn btn btn-primary">
+          写真を選択<%= f.file_field :image, :accept => 'image/*', :capture => "camera", :id => "upfile", :style => "display:none;" %>
+        </span>
+      </label>
+      <input type="text" class="form-control" style="height: 30.8px; padding: 2px 12px;" readonly="">
     </div>
-    
+    <%= f.hidden_field :image_cache, class: 'form-control' %>
+  </div>
+
+  <div class="container">
     <div class="form-group">
-      <%= f.label :company_name %><br />
-      <%= f.text_field :company_name, class: 'form-control' %>
+      <%= f.label :shop_name %><br />
+      <%= f.text_field :shop_name, autofocus: true, class: 'form-control', placeholder: '店名（必須）' %>
     </div>
-  
     <div class="form-group">
-      <%= f.label :url %><br />
-      <%= f.text_field :url, class: 'form-control' %>
-    </div>  
-  
-    <div class="form-group">
-      <%= f.label :staff_name %><br />
-      <%= f.text_field :staff_name, class: 'form-control' %>
-    </div>
-    
-    <div class="form-group">
-      <%= f.label :email %><span class="required">（必須）</span><br />
-      <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
-    </div>
-  
+      <%= f.label :email %><br />        
+      <%= f.email_field :email, autocomplete: "email", class: 'form-control', placeholder: 'メールアドレス（必須）' %>
+    </div>    
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-  
-    <p>パスワードを変更されない場合、以下は空欄のままでお願いします。</p>
-  
     <div class="form-group">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-        ※<%= @minimum_password_length %>文字以上
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      <%= f.label :phone_number %><br />
+      <%= f.number_field :phone_number, class: 'form-control', placeholder: '電話番号（数字のみ）' %>
     </div>
-  
     <div class="form-group">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+      <%= f.label :shop_type %><br />        
+      <label><%= f.radio_button :shop_type, "カフェ" %>カフェ</label>
+      <label><%= f.radio_button :shop_type, "居酒屋" %>居酒屋</label>
+      <label><%= f.radio_button :shop_type, "その他" %>その他</label>
     </div>
-  
+  </div>
+
+  <!-- 住所 -->   
+  <div class="container">
     <div class="form-group">
-      <%= f.label :current_password %> <br />
-      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+      <span class="p-country-name" style="display:none;">Japan</span>
+      <%= f.label :post_code %><br />
+      <%= f.text_field :post_code, class: 'p-postal-code form-control', placeholder: '郵便番号（数字）' %>      
     </div>
-  
-    <div class="actions">
-      <%= f.submit "登録内容の変更", class: 'btn btn-success' %>
+    <div class="form-group">
+      <%= f.label :prefecture %><br />        
+      <%= f.text_field :prefecture, class: 'p-region form-control', placeholder: '都道府県' %>   
     </div>
-  <% end %>
+    <div class="form-group">
+      <%= f.label :city %><br />         
+      <%= f.text_field :city, class: 'p-locality form-control', placeholder: '市区町村' %>   
+    </div>
+     <div class="form-group">
+      <%= f.label :street %><br />  
+      <%= f.text_field :street, class: 'p-street-address form-control', placeholder: '番地' %>   
+    </div>
+    <div class="form-group">
+      <%= f.label :building %><br />    
+      <%= f.text_field :building, class: 'form-control', placeholder: '建物名（任意）' %>  
+    </div>      
+    <div class="form-group">
+      <%= f.label :near_station %><br />    
+      <%= f.text_field :near_station, class: 'form-control', placeholder: 'JR京都駅' %>  
+    </div>          
+  </div>
   
-  <ul class="links">
-    <li><%= link_to "戻る", :back, :class => 'btn btn-default' %></li>
-    <li><%= button_to "登録を解除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => 'btn btn-danger' %></li>
-  </ul>
-</div>
+  <div class="container">
+    <div class="form-group">
+      <%= f.label :makanai, '採用面談時のまかない提供'%>&nbsp;&nbsp;<%= f.check_box 'makanai',{},checked_value = "true",unchecked_value = "false" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :open_hours_lunch %><br />
+      <%= f.text_field :open_hours_lunch, class: 'form-control', placeholder: '10：30~16：00' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :open_hours_dinner %><br />
+      <%= f.text_field :open_hours_dinner, class: 'form-control', placeholder: '16：00~22：00 (21:30L.O)' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :closed_days %><br />
+      <%= f.text_field :closed_days, class: 'form-control', placeholder: '日曜日 / 毎月第３月曜日' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :price_range_lunch %><br />
+      <%= f.text_field :price_range_lunch, class: 'form-control', placeholder: '1,000円～1,600円' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :price_range_dinner %><br />
+      <%= f.text_field :price_range_dinner, class: 'form-control', placeholder: '2,000円～3,900円' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :shop_info_url %><br />
+      <%= f.text_field :shop_info_url, class: 'form-control', placeholder: 'https://xxx.xx.xx' %>
+    </div>       
+    <div class="form-group">
+      <%= f.label :other %><br />
+      <%= f.text_area :other, class: 'form-control', placeholder: '' %>
+    </div>        
+  </div>  
+    
+  <div class="actions container" style="margin-top: 20px;">
+    <%= f.submit "登録内容の変更", class: 'btn btn-success' %>
+    <%= link_to "戻る", :back, :class => 'btn btn-default' %>
+  </div>
+<% end %>

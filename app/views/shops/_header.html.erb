@@ -1,13 +1,33 @@
-<% if shop_signed_in? %>
-  <% if shop.id == current_shop.id %>
-    <ul class="list-inline" style="margin:10px 0">
-      <li><%= link_to 'プロフィール編集', edit_shop_registration_path(shop), type:"button", class:"btn btn-default" %></li>
-      <li><%= link_to '投稿', new_post_path, type:"button", class:"btn btn-primary" %></li>
-      <li><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete, type:"button", class:"btn btn-danger"  %></li>
-    </ul>
+<div class="container">
+  <p class="shop-tags">
+    <% if shop.near_station? %>
+      <%= shop.near_station %>
+    <% else %>
+      ・・・
+    <% end %>
+      /
+    <% if shop.shop_type? %>
+      <%= shop.shop_type %>
+    <% else %>
+      ・・・
+    <% end %>
+  </p>
+  <p class="shop-name"><%= shop.shop_name %></p>
+  
+  <% if shop_signed_in? %>
+    <% if shop.id == current_shop.id %>
+      <ul class="shop-admin-menu list-inline">
+        <li><%= link_to '投稿', new_post_path, type:"button", class:"btn btn-primary" %></li>        
+        <li class="shop-prof-edit"><%= link_to '基本情報の編集', edit_shop_registration_path(shop), type:"button", class:"btn btn-default" %></li>
+      </ul>
+    <% end %>
   <% end %>
-<% end %>
-<p class="shop-name"><%= shop.shop_name %></p>
-<div style='background-color: #dddddd; margin:10px 0; padding:10px;'>
-  <p>お店からのお知らせエリア（掲載期間を編集画面で設定可能にする）</p>
+  
+  <ul class="summary">
+    <li>今月の総いいね！ <%= @shop.total_like %> 件</li>
+    <li>フォロワー数 <%= @shop.total_follower %> 人</li>
+    <% if @shop.makanai? %>
+      <li class="makanai"><i class="fas fa-utensils"></i>&nbsp;採用面談時のまかない提供OK！店</li>
+    <% end %>    
+  </ul>
 </div>

@@ -1,1 +1,26 @@
-<%= render 'form', post: @post %>
+<p class="shop-name"><%= current_shop.shop_name %></p>
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <% if @post.image? %>
+    <div class="existing-img"><%= image_tag @post.image.url, :class => "full-width" %></div>
+  <% end %>
+  
+  <div class="form-group container">
+    <%= f.text_area :comment, rows: 8, class: 'form-control', :maxlength => "140", placeholder: 'コメントを最大140文字まで入力できます' %>
+  </div>
+    
+  <div class="actions container">
+    <%= f.submit "投稿", class: 'btn btn-success' %>
+    <%= link_to "戻る", :back, :class => 'btn btn-default' %>
+  </div>
+<% end %>

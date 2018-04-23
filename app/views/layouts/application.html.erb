@@ -23,6 +23,7 @@
 
     <!--郵便番号から住所を検索-->
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+    <!--<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>-->
 
     <!-- Googlemap -->
     <%# binding.pry %>
@@ -33,25 +34,20 @@
 
   <body>
     <!--wrapper_pc/spは後で消す-->
-    <div id="wrapper_pc">PC画面は未制作<br/><span>（画面の横幅を767px以下にしてください）</span></div>
+    <div id="wrapper_pc">スマートフォンでご覧ください<br/>（画面の横幅を767px以下にしてください）</div>
     
     <div id="wrapper_sp">
       <%= render 'layouts/header' %>
-  
-      <div class='container'>
-        <div class='sidebar-left'>
-          左サイドバー
-        </div>      
-        <div class='main'>
-          <%= render 'layouts/flash_messages' %>
-          <%= yield %>
-        </div>
-        <div class='sidebar-right'>
-          右サイドバー
-        </div>
-      </div>
-      <!--<p id="pageTop"><a href=""><i class="fa fas fa-camera fa-2x fa-fw"></i></a></p>-->
-      <p id="pageTop"><a href=""><i class="fa fas fa-chevron-up fa-2x fa-fw"></i></a></p>
+      <%= render 'layouts/flash_messages' %>
+      <%= yield %>
+
+      <% if shop_signed_in? %>
+        <% unless current_page?(new_post_path) %>
+          <p id="camera"><%= link_to new_post_path do %><i class="fa fas fa-camera fa-fw" style="font-size:2.4rem;"></i><% end %></p>
+        <% end %>
+      <% else %>
+        <p id="pageTop"><a href=""><i class="fa fas fa-chevron-up fa-fw" style="font-size:2.4rem;"></i></a></p>
+      <% end %>
       
       <%= render 'layouts/footer' %>
     </div>

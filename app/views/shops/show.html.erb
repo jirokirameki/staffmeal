@@ -1,10 +1,16 @@
-<div class="shop-show">
-  <%= render 'shops/header', shop: @shop %>
-  
-  <%= render 'shops/tab', shop: @shop %>
-  
-  <div class="shop-main">
-    <p>総いいね！ <%= @shop.total_like %> 件｜フォロワー数xxx人</p>
-    <%= render 'posts/posts-grid', posts: @shop.posts %>
-  </div>
-</div>
+<% if shop_signed_in? %>
+  <% if @shop.id == current_shop.id %>
+    <p class="shop-logout"><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %></p>
+  <% end %>
+<% end %>
+
+<p>
+  <% if @shop.image? %>
+    <%= image_tag @shop.image.url, :class => "full-width" %>
+  <% else %>
+    <%= image_tag 'default-shop_img.jpg', :class => "full-width" %>
+  <% end %>
+</p>
+<%= render 'shops/header', shop: @shop %>
+<%= render 'shops/tabs', shop: @shop %>
+<%= render 'posts/posts-grid', posts: @shop.posts %>

@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20180417081943) do
   end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                             default: "", null: false
-    t.string   "encrypted_password",                default: "", null: false
+    t.string   "email",                             default: "",    null: false
+    t.string   "encrypted_password",                default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.integer  "sign_in_count",                     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -46,19 +46,33 @@ ActiveRecord::Schema.define(version: 20180417081943) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",                   default: 0,  null: false
+    t.integer  "failed_attempts",                   default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "shop_name"
-    t.string   "company_name"
-    t.string   "url"
-    t.string   "staff_name"
-    t.string   "tel"
+    t.string   "shop_info_url"
+    t.string   "image"
+    t.string   "phone_number"
+    t.integer  "total_like",                        default: 0
+    t.integer  "total_follower",                    default: 0
+    t.string   "shop_type"
+    t.string   "near_station"
+    t.string   "open_hours_lunch"
+    t.string   "open_hours_dinner"
+    t.string   "closed_days"
+    t.string   "price_range_lunch"
+    t.string   "price_range_dinner"
+    t.string   "other"
+    t.boolean  "makanai",                           default: false
     t.float    "latitude",               limit: 24
     t.float    "longitude",              limit: 24
-    t.integer  "total_like",                        default: 0
+    t.integer  "post_code"
+    t.string   "prefecture"
+    t.string   "city"
+    t.string   "street"
+    t.string   "building"
     t.index ["confirmation_token"], name: "index_shops_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_shops_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true, using: :btree
@@ -88,6 +102,8 @@ ActiveRecord::Schema.define(version: 20180417081943) do
     t.string   "user_name"
     t.string   "provider"
     t.string   "uid"
+    t.string   "location"
+    t.string   "image"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
