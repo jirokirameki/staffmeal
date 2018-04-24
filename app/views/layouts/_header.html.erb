@@ -4,18 +4,11 @@
       <li style="float: left;"><a href="/"><%= image_tag('title.png', :width => "80px", :height => "20px", :alt => "staffmeal") %></a></li>
       <li style="float: right;">
         <ul class="wrapper_nav_second">
-          <li style="padding: 0 5px;">
+          <li>
             <% if user_signed_in? %>
               <%= link_to 'マイページ', user_path(current_user) %>
             <% else %>
               <%= link_to '無料会員登録 / ログイン', new_user_session_path %>
-            <% end %>
-          </li>
-          <li style="padding-left: 5px;">
-            <% if shop_signed_in? %>
-              <%= link_to 'マイページ', shop_path(current_shop) %>
-            <% else %>
-              <%= link_to 'お店の方', shops_path %>
             <% end %>
           </li>
         </ul>

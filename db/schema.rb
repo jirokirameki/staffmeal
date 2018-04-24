@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417081943) do
+ActiveRecord::Schema.define(version: 20180423145334) do
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -79,6 +79,22 @@ ActiveRecord::Schema.define(version: 20180417081943) do
     t.index ["unlock_token"], name: "index_shops_on_unlock_token", unique: true, using: :btree
   end
 
+  create_table "stories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.integer  "shop_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "draft",            default: false
+    t.string   "image"
+    t.string   "origin"
+    t.string   "origin_image"
+    t.string   "recommend"
+    t.string   "recommend_image"
+    t.string   "atmosphere"
+    t.string   "atmosphere_image"
+    t.index ["shop_id"], name: "index_stories_on_shop_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -113,4 +129,5 @@ ActiveRecord::Schema.define(version: 20180417081943) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "shops"
+  add_foreign_key "stories", "shops"
 end

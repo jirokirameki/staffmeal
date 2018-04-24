@@ -1,0 +1,57 @@
+<%= form_for(story) do |f| %>
+  <% if story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(story.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% story.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="story-article">
+    <div class="form-group">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, class: 'form-control', :maxlength => "50", placeholder: '最大50文字まで入力できます' %>
+    </div>
+    
+    <!-- 追加箇所 開始 -->
+    <div class="form-group">
+      <div class="imagePreview" style="margin-bottom: 5px;"></div>
+  
+      <div class="input-group">
+        <label class="input-group-btn">
+          <span class="btn btn btn-primary">
+            写真を選択<%= f.file_field :image, :accept => 'image/*', :capture => "camera", :id => "upfile", :style => "display:none;" %>
+          </span>
+        </label>
+        <input type="text" class="form-control" style="height: 30.8px; padding: 2px 12px;" readonly="">
+      </div>
+      <%= f.hidden_field :image_cache, class: 'form-control' %>
+    </div>
+    <!-- 追加箇所 終了 -->
+
+    <div class="form-group">
+      <%= f.label :origin, 'お店の始まりは？' %><br />
+      <%= f.text_area :origin, rows: 8, class: 'form-control', :maxlength => "600", placeholder: '最大600文字まで入力できます' %>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :recommend, 'これだけは食べてほしいお勧めメニューは？' %><br />      
+      <%= f.text_area :recommend, rows: 8, class: 'form-control', :maxlength => "600", placeholder: '最大600文字まで入力できます' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :atmosphere, 'お店の雰囲気は？' %><br />  
+      <%= f.text_area :atmosphere, rows: 8, class: 'form-control', :maxlength => "600", placeholder: '最大600文字まで入力できます' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "投稿", class: 'btn btn-success' %>
+      <%= f.submit "下書き保存", name: "draft_button", class: 'btn btn-default' %>
+      <%= link_to "戻る", :back, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

@@ -15,5 +15,6 @@ class Shop < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :timeoutable
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_one :story, dependent: :destroy
 end

@@ -63,7 +63,7 @@ class PostsController < ApplicationController
       :comment,
       :image, 
       :image_cache, 
-      :remove_image 
+      :remove_image
       )
   end    
 end

@@ -18,7 +18,7 @@
     <% if shop.id == current_shop.id %>
       <ul class="shop-admin-menu list-inline">
         <li><%= link_to '投稿', new_post_path, type:"button", class:"btn btn-primary" %></li>        
-        <li class="shop-prof-edit"><%= link_to '基本情報の編集', edit_shop_registration_path(shop), type:"button", class:"btn btn-default" %></li>
+        <li class="shop-edit"><%= link_to '基本情報の編集', edit_shop_registration_path(shop), type:"button", class:"btn btn-default" %></li>
       </ul>
     <% end %>
   <% end %>

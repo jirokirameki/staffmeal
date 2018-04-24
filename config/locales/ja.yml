@@ -10,6 +10,7 @@ ja:
       shop: お店
       user: ユーザー
       post: 投稿
+      story: ストーリー
     attributes:
       shop:
         shop_name: 店名
@@ -43,6 +44,11 @@ ja:
         remember_me: 次回から自動的にログイン
       post:
         comment: コメント
+      story:
+        title: タイトル
+        origin: お店の始まり
+        recommend: お勧めメニュー
+        atmosphere: お店の雰囲気
   date:
     abbr_day_names:
     - 日

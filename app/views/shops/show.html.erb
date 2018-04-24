@@ -1,9 +1,3 @@
-<% if shop_signed_in? %>
-  <% if @shop.id == current_shop.id %>
-    <p class="shop-logout"><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %></p>
-  <% end %>
-<% end %>
-
 <p>
   <% if @shop.image? %>
     <%= image_tag @shop.image.url, :class => "full-width" %>

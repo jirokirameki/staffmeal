@@ -122,46 +122,18 @@ footer {
   margin: 10px;
 }
 
-/*　pageTop　*/
-#pageTop {
+/*　右下の丸ボタン（pageTop/camera）　*/
+#pageTop, #camera {
   position: fixed;
   bottom: 10px;
   right: 10px;
   margin: 0;
 }
-#pageTop i {
+#pageTop i, #camera i {
   padding-top: 6px;
   /*line-height: 24px;*/
 }
-#pageTop a {
-  display: block;
-  z-index: 999;
-  padding-top: 12px;
-  border-radius: 30px;
-  width: 50px;
-  height: 50px;
-  background-color: #9FD6D2;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-}
-#pageTop a:hover {
-  text-decoration: none;
-  opacity: 0.7;
-}
-/*　camera　*/
-#camera {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  margin: 0;  
-}
-#camera i {
-  padding-top: 6px;
-  /*line-height: 24px;*/
-}
-#camera a {
+#pageTop a, #camera a {
   display: block;
   z-index: 999;
   padding-top: 12px;
@@ -169,16 +141,49 @@ footer {
   width: 50px;
   height: 50px;
   /*background-color: #9FD6D2;*/
-  background-color: #337ab7;
   color: #fff;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
 }
-#camera a:hover {
+#pageTop a {
+  background-color: #9FD6D2;
+}
+#camera a {
+  background-color: #337ab7;
+}
+#pageTop a:hover, #camera a:hover {
   text-decoration: none;
   opacity: 0.7;
 }
+/*　camera　*/
+/*#camera {*/
+/*  position: fixed;*/
+/*  bottom: 10px;*/
+/*  right: 10px;*/
+/*  margin: 0;  */
+/*}*/
+/*#camera i {*/
+/*  padding-top: 6px;*/
+  /*line-height: 24px;*/
+/*}*/
+/*#camera a {*/
+/*  display: block;*/
+/*  z-index: 999;*/
+/*  padding-top: 12px;*/
+/*  border-radius: 30px;*/
+/*  width: 50px;*/
+/*  height: 50px;*/
+/*  background-color: #337ab7;*/
+/*  color: #fff;*/
+/*  font-weight: bold;*/
+/*  text-decoration: none;*/
+/*  text-align: center;*/
+/*}*/
+/*#camera a:hover {*/
+/*  text-decoration: none;*/
+/*  opacity: 0.7;*/
+/*}*/
 
 
 /************** posts/index **************/
@@ -236,7 +241,7 @@ footer {
   margin: 10px 0;
   text-align: right;
 }
-.shop-prof-edit a {
+.shop-edit a {
   color: #777;
 }
 .shop-logout {
@@ -461,7 +466,10 @@ footer {
   font-size: 1.2rem;
 }
 
-
+/************** posts/show **************/
+.story-edit a {
+  color: #777;
+}
 
 
 

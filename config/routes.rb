@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  
-  # root to: 'toppages#index' 
-  
   devise_for :users, module: :users, 
     path_names: { sign_in: "login", sign_out: "logout"}, 
     controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -25,4 +22,6 @@ Rails.application.routes.draw do
   resources :posts
   
   resources :likes, only: [:create, :destroy]
+  
+  resources :stories
 end

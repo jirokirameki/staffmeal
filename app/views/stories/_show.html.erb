@@ -1,0 +1,29 @@
+<div class="shop-admin-menu">
+  <% if shop_signed_in? %>
+    <% if shop.id == current_shop.id %>
+      <ul class="list-inline">
+        <li class="shop-edit"><%= link_to '編集', edit_story_path(shop.story), type:"button", class:"btn btn-default" %></li>
+        <li><%= link_to '削除', shop.story, type:"button", class:"btn btn-danger", method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="story-article">
+  <p class="title"><%= shop.story.title %></p>
+</div>
+
+<% if shop.story.image? %>
+  <p><%= image_tag shop.story.image.url, :class => "full-width" %></p>
+<% end %>
+  
+<div class="story-article">  
+  <p class="subtitle">お店の始まりは？</p>
+  <p class="paragraph"><%= simple_format(shop.story.origin) %></p>
+    
+  <p class="subtitle">これだけは食べてほしいお勧めメニューは？</p>
+  <p class="paragraph"><%= simple_format(shop.story.recommend) %></p>
+    
+  <p class="subtitle">お店の雰囲気は？</p>
+  <p class="paragraph"><%= simple_format(shop.story.atmosphere) %></p>
+</div>
