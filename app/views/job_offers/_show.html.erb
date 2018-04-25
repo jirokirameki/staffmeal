@@ -1,0 +1,72 @@
+<div class="shop-admin-menu">
+  <% if shop_signed_in? %>
+    <% if shop.id == current_shop.id %>
+      <ul class="list-inline">
+        <% if shop.job_offer.draft == true %>
+          <li class="draft">※下書き</li>
+        <% end %>
+        <li class="shop-edit"><%= link_to '編集', edit_job_offer_path(shop.job_offer), type:"button", class:"btn btn-default" %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="job-offer-article">
+  <p class="title"><%= shop.job_offer.title %></p>
+</div>
+
+<% if shop.job_offer.image? %>
+  <p><%= image_tag shop.job_offer.image.url, :class => "full-width" %></p>
+<% end %>
+  
+<div class="job-offer-article">  
+  <p class="subtitle">どんなお店？</p>
+  <%= simple_format(shop.job_offer.what, :class => "paragraph") %>
+    
+  <p class="subtitle">一緒に働くメンバーはどんな人たち？</p>
+  <%= simple_format(shop.job_offer.team, :class => "paragraph") %>
+    
+  <p class="subtitle">あなたには、こんなことをお願いします。</p>
+  <%= simple_format(shop.job_offer.want, :class => "paragraph") %>
+</div>
+
+<p class="job-offer-condition-title">募集情報</p>
+<table class="table job-offer-condition">
+  <tr>
+    <th>雇用形態</th>
+    <td>
+      <% if shop.job_offer.permanent_staff? %>&nbsp;正社員&nbsp;<% end %>
+      <% if shop.job_offer.temporary_staff? %>&nbsp;契約社員&nbsp;<% end %>
+      <% if shop.job_offer.arbeit? %>&nbsp;アルバイト&nbsp;<% end %>
+      <% if shop.job_offer.part_time_job? %>&nbsp;パート&nbsp;<% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>給与</th>
+    <td><%= shop.job_offer.allowance %></td>
+  </tr>
+  <tr>
+    <th>勤務時間</th>
+    <td><%= shop.job_offer.working_hours %></td>
+  </tr>
+  <tr>
+    <th>募集情報の詳細</th>
+    <td>
+      <% unless shop.job_offer.url.empty? %>
+        <a rel="nofollow" target="_blank" href="<%= shop.job_offer.url %>"><i class="fas fa-external-link-alt"></i>&nbsp;<%= shop.job_offer.url %></a>
+      <% end %>
+    </td>
+  </tr>  
+  <tr>
+    <th>その他</th>
+    <td><%= simple_format(shop.job_offer.other) %></td>
+  </tr>
+</table>
+
+
+<ul style="text-align: center;">
+  <li><a href="#" type="button" class="btn btn-primary">話を聞きたい</a></li>
+  <% if !@shop.job_offer.nil? && @shop.job_offer.makanai? %>
+    <li class="makanai" style="margin-top: 5px; font-size: 1.2rem;"><i class="fas fa-utensils"></i>&nbsp;採用面談時のまかない提供OK！店</li>
+  <% end %>
+</ul>

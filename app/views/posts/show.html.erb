@@ -1,12 +1,1 @@
-<!--post-header-->
-<div class="shop-admin-menu">
-  <% if shop_signed_in? %>
-    <% if @post.shop.id == current_shop.id %>
-      <ul class="list-inline">
-        <li class="shop-edit"><%= link_to '編集', edit_post_path(@post), type:"button", class:"btn btn-default" %></li>
-        <li><%= link_to '削除', @post, type:"button", class:"btn btn-danger", method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></li>
-      </ul>
-    <% end %>
-  <% end %>
-</div>
 <%= render 'posts/post', post: @post %>

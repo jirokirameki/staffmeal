@@ -7,7 +7,7 @@
   
     <% if post.present? %>
       <% if post.image? %>
-        <li><%= render 'posts/post', post: post %></li>
+        <li class="post-content"><%= render 'posts/post', post: post %></li>
       <% end %>
     <% end %>
   <% end %>

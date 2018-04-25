@@ -48,8 +48,11 @@
   <tr>
     <th>住所</th>
     <td>
-      <% if @shop.prefecture? && @shop.city? && @shop.street? %>
-        <a href="#"><%= @shop.prefecture %><%= @shop.city %><%= @shop.street %><%= @shop.building %></a>
+      <!--<a target="_blank" href="https://maps.google.com/maps?q=36.879676,-111.512351">テストリンク</a>-->
+      <% if @shop.address? %>
+        <a rel="nofollow" target="_blank" href="https://maps.google.com/maps?q=<%= @shop.latitude %>,<%= @shop.longitude %>">
+          <i class="fas fa-external-link-alt"></i>&nbsp;<%= @shop.address %>
+        </a>
       <% end %>  
     </td>
   </tr>
@@ -65,10 +68,10 @@
     </td>
   </tr>
   <tr>
-    <th>お店の詳細</th>
+    <th>お店情報の詳細</th>
     <td>
-      <% if @shop.shop_info_url? %>
-        <a href="<%= @shop.shop_info_url %>"><%= @shop.shop_info_url %></a>
+      <% if @shop.url? %>
+        <a rel="nofollow" target="_blank" href="<%= @shop.url %>"><i class="fas fa-external-link-alt"></i>&nbsp;<%= @shop.url %></a>
       <% end %>       
     </td>
   </tr>  

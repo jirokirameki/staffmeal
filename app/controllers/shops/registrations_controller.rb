@@ -11,7 +11,7 @@ class Shops::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   super
+    # super
   # end
 
   # GET /resource/edit
@@ -42,19 +42,21 @@ class Shops::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, 
-    keys: [:shop_name, :makanai, :phone_number, :shop_type, :open_hours_lunch, :open_hours_dinner, :closed_days,
-    :post_code, :prefecture, :city, :street, :building, :near_station,
-    :shop_info_url, :image, :image_cache, :remove_image,
-    :price_range_lunch, :price_range_dinner, :other])
+    # devise_parameter_sanitizer.permit(:sign_up, 
+    # keys: [:shop_name, :phone_number, :shop_type, :open_hours_lunch, :open_hours_dinner, :closed_days,
+    # :post_code, :prefecture, :city, :street, :building, :near_station,
+    # :url, :image, :image_cache, :remove_image,
+    # :price_range_lunch, :price_range_dinner, :other])
+    
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:shop_name])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, 
-    keys: [:shop_name, :makanai, :phone_number, :shop_type, :open_hours_lunch, :open_hours_dinner, :closed_days,
-    :post_code, :prefecture, :city, :street, :building, :near_station,
-    :shop_info_url, :image, :image_cache, :remove_image,
+    keys: [:shop_name, :phone_number, :shop_type, :open_hours_lunch, :open_hours_dinner, :closed_days,
+    :post_code, :prefecture, :city, :street, :building, :near_station, :address,
+    :url, :image, :image_cache, :remove_image,
     :price_range_lunch, :price_range_dinner, :other])
   end
 

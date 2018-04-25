@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :authenticate_shop!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_shop!, only: [:new, :create, :edit, :update]
   
   def show
     @story = Story.find(params[:id])
@@ -10,17 +10,13 @@ class StoriesController < ApplicationController
   end
 
   def create
-    # binding.pry    
-    
-    # @story = Story.new(story_params)
-    # @story = current_shop.story.build(story_params)
     @story = current_shop.build_story(story_params)
-    
+
     if params[:draft_button]
       # 下書き保存
       @story.draft = true;
       
-      if @story.save(validate: false)
+      if @story.save
         flash[:success] = 'Story が正常に下書き保存されました'
         redirect_to story_shop_path(current_shop)
       else
@@ -32,14 +28,13 @@ class StoriesController < ApplicationController
       # 投稿
       @story.draft = false;
       
-      if @story.save
+      if @story.save(context: :post)
         flash[:success] = 'Story が正常に投稿されました'
         redirect_to story_shop_path(current_shop)
       else
         flash.now[:danger] = 'Story が投稿されませんでした'
         render :new
       end        
-      
     end
   end
 
@@ -50,29 +45,35 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
     
-    # binding.pry 
+    if params[:draft_button]
+      # 下書き保存
+      @story.draft = true;
+      @story.attributes = story_params
 
-    if @story.update(story_params)
-      flash[:success] = 'Story は正常に更新されました'
-      redirect_to story_shop_path(current_shop)
+      if @story.save  
+        flash[:success] = 'Story は正常に下書き保存されました'
+        redirect_to story_shop_path(current_shop)
+      else
+        flash.now[:danger] = 'Story は下書き保存されませんでした'
+        render :edit
+      end
     else
-      flash.now[:danger] = 'Story は更新されませんでした'
-      render :edit
-    end    
+      # 投稿
+      @story.draft = false;
+      @story.attributes = story_params
+    
+      if @story.save(context: :post)
+        flash[:success] = 'Story は正常に更新されました'
+        redirect_to story_shop_path(current_shop)
+      else
+        flash.now[:danger] = 'Story は更新されませんでした'
+        render :edit
+      end
+    end
   end
 
-  def destroy
-    # @story = Story.find(params[:id])
-    # @story = current_shop.story
-    # @story.destroy
-    current_shop.story = nil
-
-    flash[:success] = 'Story は正常に削除されました'
-    redirect_to story_shop_path(current_shop)
-  end
+  private
   
-  private  
-
   # Strong Parameter
   def story_params
     params.require(:story).permit(:title, :image, :image_cache, :origin, :recommend, :atmosphere)

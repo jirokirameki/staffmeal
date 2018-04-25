@@ -1,0 +1,95 @@
+<%= form_for(job_offer) do |f| %>
+  <% if job_offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job_offer.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% job_offer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="job-offer-article">
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control', :maxlength => "50", placeholder: '最大50文字まで入力できます' %>
+    </div>
+  </div>
+    
+  <!-- 追加箇所 開始 -->
+  <div class="existing-img">
+    <% if job_offer.image? %><%= image_tag job_offer.image.url %><% end %>
+  </div>    
+    
+  <div class="form-group">
+    <div class="imagePreview" style="margin-bottom: 5px;"></div>
+  
+    <div class="input-group container">
+      <label class="input-group-btn">
+        <span class="btn btn btn-primary">
+          写真を選択<%= f.file_field :image, :accept => 'image/*', :capture => "camera", :id => "upfile", :style => "display:none;" %>
+        </span>
+      </label>
+      <input type="text" class="form-control" style="height: 30.8px; padding: 2px 12px;" readonly="">
+    </div>
+    <%= f.hidden_field :image_cache, class: 'form-control' %>
+  </div>
+  <!-- 追加箇所 終了 -->
+
+  <div class="job-offer-article">
+    <div class="form-group">
+      <%= f.label :what, 'どんなお店？（250文字）' %>
+      <%= f.text_area :what, rows: 8, class: 'form-control', :maxlength => "250", placeholder: '最大250文字まで入力できます' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :team, '一緒に働く人はどんな人たち？（250文字）' %>      
+      <%= f.text_area :team, rows: 8, class: 'form-control', :maxlength => "250", placeholder: '最大250文字まで入力できます' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :want, 'あなたにはこんな仕事をしていただきます。（250文字）' %>
+      <%= f.text_area :want, rows: 8, class: 'form-control', :maxlength => "250", placeholder: '最大250文字まで入力できます' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :makanai, '採用面談時のまかない提供' %>&nbsp;&nbsp;<%= f.check_box 'makanai',{},checked_value = "true",unchecked_value = "false" %>
+    </div>    
+    
+    <div class="form-group">
+      <span class="label">雇用形態</span><br/>
+      <%= f.label :permanent_staff %>&nbsp;<%= f.check_box 'permanent_staff',{},checked_value = "true",unchecked_value = "false" %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.label :temporary_staff %>&nbsp;<%= f.check_box 'temporary_staff',{},checked_value = "true",unchecked_value = "false" %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.label :arbeit %>&nbsp;<%= f.check_box 'arbeit',{},checked_value = "true",unchecked_value = "false" %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.label :part_time_job %>&nbsp;<%= f.check_box 'part_time_job',{},checked_value = "true",unchecked_value = "false" %>
+      <% #binding.pry %>
+    </div>      
+      
+     <div class="form-group">
+      <%= f.label :allowance %>
+      <%= f.text_field :allowance, class: 'form-control', :maxlength => "50", placeholder: '最大50文字まで入力できます' %>
+    </div>   
+ 
+    <div class="form-group">
+      <%= f.label :working_hours %>  
+      <%= f.text_field :working_hours, class: 'form-control', :maxlength => "50", placeholder: '最大50文字まで入力できます' %>
+    </div>      
+ 
+     <div class="form-group">
+      <%= f.label :url %>
+      <%= f.url_field :url, class: 'form-control', :maxlength => "50", placeholder: '最大50文字まで入力できます' %>
+    </div>      
+
+     <div class="form-group">
+      <%= f.label :other %>
+      <%= f.text_area :other, class: 'form-control', :maxlength => "250", placeholder: '最大250文字まで入力できます' %>
+    </div>       
+
+    <div class="actions">
+      <%= f.submit "投稿", class: 'btn btn-success' %>
+      <%= f.submit "下書き保存", name: "draft_button", class: 'btn btn-default' %>
+      <%= link_to "戻る", :back, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

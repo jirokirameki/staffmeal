@@ -11,13 +11,13 @@ ja:
       user: ユーザー
       post: 投稿
       story: ストーリー
+      job_offer: ジョブオファー
     attributes:
       shop:
         shop_name: 店名
         email: メールアドレス
         shop_type: カテゴリ
-        makanai: まかない飯
-        phone_number: 電話番号（数字のみ）
+        phone_number: 電話番号（ハイフンなし）
         near_station: 最寄り駅
         open_hours_lunch: 営業時間（ランチ）
         open_hours_dinner: 営業時間（ディナー）
@@ -25,12 +25,12 @@ ja:
         price_range_lunch: 平均予算（ランチ）
         price_range_dinner: 平均予算（ディナー）
         other: その他
-        shop_info_url: お店の詳細が記載されているページへのリンク（URL）
+        url: お店情報の詳細（URL）
         password: パスワード
         password_confirmation: パスワード（確認）
         current_password: 現在のパスワード
         remember_me: 次回から自動的にログイン
-        post_code: 郵便番号（数字）
+        post_code: 郵便番号（ハイフンなし）
         prefecture: 都道府県
         city: 市区町村
         street: 番地
@@ -46,9 +46,25 @@ ja:
         comment: コメント
       story:
         title: タイトル
-        origin: お店の始まり
-        recommend: お勧めメニュー
-        atmosphere: お店の雰囲気
+        origin: 「お店の始まりは？」
+        recommend: 「これだけは食べてほしい。」
+        atmosphere: 「お店の雰囲気は？」
+        draft: 下書き
+      job_offer:
+        title: タイトル
+        what: 「どんなお店？」
+        team: 「一緒に働く人はどんな人たち？」
+        want: 「あなたにはこんな仕事をしていただきます。」
+        permanent_staff: 正社員
+        temporary_staff: 契約社員
+        arbeit: アルバイト
+        part_time_job: パート
+        allowance: 給与
+        working_hours: 勤務時間
+        url: 募集情報の詳細（URL）
+        other: その他
+        makanai: まかない
+        draft: 下書き
   date:
     abbr_day_names:
     - 日

@@ -15,4 +15,10 @@
       </li>
     </ul>
   </nav>
+  <% if shop_signed_in? %>
+    <ul class="during-login">
+      <li><%= link_to shop_path(current_shop) do %><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;マイページ<% end %></li>
+      <li><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %></li>
+    </ul>
+  <% end %>
 </header>

@@ -5,12 +5,12 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
-      <%= f.label :shop_name %><span class="required">（必須）</span><br />
+      <%= f.label :shop_name %><span class="required">（必須）</span>
       <%= f.text_field :shop_name, autofocus: true, class: 'form-control', placeholder: 'スタッフミール屋' %>
     </div>
   
     <div class="form-group">
-      <%= f.label :email %><span class="required">（必須）</span><br />
+      <%= f.label :email %><span class="required">（必須）</span>
       <%= f.email_field :email, autocomplete: "email", class: 'form-control', placeholder: 'taro@staffmeal.co.jp' %>
     </div>
   
@@ -18,12 +18,12 @@
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <span>（<%= @minimum_password_length %> 文字以上）</span>
-      <% end %><span class="required">（必須）</span><br />
+      <% end %><span class="required">（必須）</span>
       <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
     </div>
   
     <div class="form-group">
-      <%= f.label :password_confirmation %><span class="required">（必須）</span><br />
+      <%= f.label :password_confirmation %><span class="required">（必須）</span>
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
     </div>
     

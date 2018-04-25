@@ -15,6 +15,7 @@ body {
 }
 ul {
   list-style-type: none;
+  list-style-position: inside;  
   margin: 0;
   padding: 0;
 }
@@ -22,6 +23,12 @@ label {
   font-size: 1.0rem;
   color: #999;
   margin-left: 1px;
+}
+.label {
+  font-size: 1.0rem;
+  color: #999;
+  margin: 0;
+  padding: 0;
 }
 /*すべてのstyleを削除*/
 .clear-css {
@@ -56,26 +63,56 @@ label {
 .makanai {
   color: #FF9933;
 }
-/************** placeholder **************/
-::-webkit-input-placeholder {
-  font-size: 1.2rem;  
+.draft {
+  color: red;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
-::-moz-placeholder {
-  font-size: 1.2rem;  
+/*error message*/
+#error_explanation {
+  color: #a94442;
+  font-size: 1.0rem;
+  
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
 }
-::-moz-placeholder {
+#error_explanation h2 {
+  display: none;
+}
+#error_explanation ul {
+  list-style-type: disc;
+  margin: 10px;
+}
+
+.devise-shared-links {
+  font-size: 1.2rem;
+  margin: 5px;
+}
+
+/************** form-control **************/
+.form-control {
   font-size: 1.2rem;
 }
-::-ms-input-placeholder {
-  font-size: 1.2rem;  
-}
+/************** placeholder **************/
+/*::-webkit-input-placeholder {*/
+/*  font-size: 1.2rem;  */
+/*}*/
+/*::-moz-placeholder {*/
+/*  font-size: 1.2rem;  */
+/*}*/
+/*::-moz-placeholder {*/
+/*  font-size: 1.2rem;*/
+/*}*/
+/*::-ms-input-placeholder {*/
+/*  font-size: 1.2rem;  */
+/*}*/
 
 /************** header **************/
 /* navbar */
 .navbar {
   background-color: #fff;
   min-height: 40px;
-  padding: 0 10px;
+  padding: 0 5px 0 10px;
 }
 .wrapper_nav {
   overflow: hidden;
@@ -89,6 +126,23 @@ label {
   float: left;
   margin: 5px 0;
 }
+/*during-login*/
+.during-login {
+  overflow: hidden;
+  padding: 5px 10px;
+  background-color: #23282d;
+  border-bottom: 1px solid #eee;
+  font-size: 1.0rem;
+}
+.during-login li {
+  float: left;
+}
+.during-login li:last-child {
+  float: right;
+}
+.during-login a {
+  color: #eee;
+}
 
 
 /************** _flash_messages **************/
@@ -101,17 +155,25 @@ label {
 /************** footer **************/
 footer {
   margin-top: 50px;
-  background-color: #eee;
+  background-color: #23282d;
+  /*background-color: #eee;*/
   height: 200px;
   
   position: relative;
+  
+  font-size: 1.0rem;
+  color: #eee;  
+}
+footer a {
+  color: #eee;
 }
 .copyright {
   text-align: center;
-  font-size: 1.0rem;
+  font-size: 0.8rem;
+  /*color: #eee;*/
   
   width:100%;
-  text-align:center;
+  text-align: center;
   position: absolute;
   bottom: 0;
 }
@@ -156,34 +218,6 @@ footer {
   text-decoration: none;
   opacity: 0.7;
 }
-/*　camera　*/
-/*#camera {*/
-/*  position: fixed;*/
-/*  bottom: 10px;*/
-/*  right: 10px;*/
-/*  margin: 0;  */
-/*}*/
-/*#camera i {*/
-/*  padding-top: 6px;*/
-  /*line-height: 24px;*/
-/*}*/
-/*#camera a {*/
-/*  display: block;*/
-/*  z-index: 999;*/
-/*  padding-top: 12px;*/
-/*  border-radius: 30px;*/
-/*  width: 50px;*/
-/*  height: 50px;*/
-/*  background-color: #337ab7;*/
-/*  color: #fff;*/
-/*  font-weight: bold;*/
-/*  text-decoration: none;*/
-/*  text-align: center;*/
-/*}*/
-/*#camera a:hover {*/
-/*  text-decoration: none;*/
-/*  opacity: 0.7;*/
-/*}*/
 
 
 /************** posts/index **************/
@@ -193,30 +227,36 @@ footer {
   color: #777;
   margin: 10px;
 }
-
+.post-content {
+  margin-bottom: 30px;
+}
 
 /************** posts/_post **************/
 .shop-name {
   font-weight: bold;
-  margin: 10px;  
+  margin: 5px 10px;  
 }
 .post-comment {
   font-size: 1.2rem;
-  margin: 10px; 
+  margin: 5px 10px; 
 }
 .post-icons {
   display: table;
   table-layout: fixed;
-  width: 70%;
-  margin: 10px 0;
+  width: 40%;
+  margin: 5px 0;
   margin-left: auto;
-  /*margin: 40px 0 20px 0;*/
 }
 .post-icons li {
   display:table-cell;
   text-align: center;
+  font-size: 2.4rem;
+  color: #777;
 }
-
+.post-icons li span {
+  line-height: 25px;
+  font-size: 1.2rem;
+}
 
 /************** shops/show **************/
 .shop-tags {
@@ -230,12 +270,6 @@ footer {
   font-size: 1.2rem;
 }
 
-
-.shop-logout a {
-  color: #777;
-  font-size: 1.0rem;
-}
-
 /* shop-admin-menu */
 .shop-admin-menu {
   margin: 10px 0;
@@ -243,10 +277,6 @@ footer {
 }
 .shop-edit a {
   color: #777;
-}
-.shop-logout {
-  margin: 10px;
-  text-align: right;
 }
 
 /* tabs */
@@ -430,8 +460,8 @@ footer {
   /*height: auto;*/
   background-position: center center;
   background-size: cover;
-  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
-  display: inline-block;
+  /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
+  display: block;
   margin-bottom: 5px;
 }
 .existing-img img {
@@ -457,6 +487,21 @@ footer {
 .post-edit a {
   color: #777;
 }
+.post-edit-submit {
+  margin: 10px;
+  overflow: hidden;
+}
+.post-edit-submit li {
+  float: left;
+}
+.post-edit-submit li:last-child {
+  float: right;
+  font-size: 2.0rem;
+  margin-right: 5px;
+}
+.post-edit-submit li:last-child a {
+  color: #777;
+}
 
 /************** users/edit **************/
 .user-prof-edit-wrapper {
@@ -470,9 +515,6 @@ footer {
 .story-edit a {
   color: #777;
 }
-
-
-
 
 /* レスポンシブ（ワイドな順に設定） */
 /*　画面サイズが1200px以上の場合、ここのスタイルを読み込む　*
@@ -503,10 +545,4 @@ footer {
 	.media-grid li {
 	  height: 100px;
 	}
-}
-
-
-#map {
-  width: 100%;
-  height: auto;
 }

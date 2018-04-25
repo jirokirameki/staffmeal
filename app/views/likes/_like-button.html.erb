@@ -3,20 +3,17 @@
     <%= form_for(current_user.likes.find_by(post_id: post.id), html: { method: :delete }, remote: true) do |f| %>
       <%= hidden_field_tag :post_id, post.id %>
       <%= button_tag :type => "submit", :class =>"clear-css" do %>
-        <i class="fas fa-heart fa-fw" style="font-size: 2.4rem; color: #ed4956;"></i>
-        <span style="line-height: 25px; font-size: 1.2rem; color: #ed4956;"><%= post.likes.count %></span>
+        <i class="fas fa-heart fa-fw" style="color: #ed4956;"></i><span style="color: #ed4956;"><%= post.likes.count %></span>
       <% end %>
     <% end %>  
   <% else %>
     <%= form_for(current_user.likes.build, remote: true) do |f| %>
       <%= hidden_field_tag :post_id, post.id %>
       <%= button_tag :type => "submit", :class =>"clear-css" do %>
-        <i class="far fa-heart fa-fw" style="font-size: 2.4rem; color: #777;"></i>
-        <span style="line-height: 25px; font-size: 1.2rem; color: #777;"><%= post.likes.count %></span>
+        <i class="far fa-heart fa-fw"></i><span><%= post.likes.count %></span>
       <% end %>
     <% end %>
   <% end %>
 <% else %>
-  <i class="far fa-heart fa-fw" style="font-size: 2.4rem; color: #777;"></i>
-  <span style="line-height: 25px; font-size: 1.2rem; color: #777;"><%= post.likes.count %></span>
+  <i class="far fa-heart fa-fw"></i><span><%= post.likes.count %></span>
 <% end %>

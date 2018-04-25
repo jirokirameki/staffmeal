@@ -19,8 +19,11 @@
     <%= f.text_area :comment, rows: 8, class: 'form-control', :maxlength => "140", placeholder: 'コメントを最大140文字まで入力できます' %>
   </div>
     
-  <div class="actions container">
-    <%= f.submit "投稿", class: 'btn btn-success' %>
-    <%= link_to "戻る", :back, :class => 'btn btn-default' %>
-  </div>
+  <ul class="actions post-edit-submit">
+    <li><%= f.submit "投稿", class: 'btn btn-success' %></li>
+    <li><%= link_to "戻る", :back, :class => 'btn btn-default' %></li>
+    <li><%= link_to @post, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } do %>
+      <i class="fas fa-trash-alt"></i><% end %>
+    </li>
+  </ul>
 <% end %>

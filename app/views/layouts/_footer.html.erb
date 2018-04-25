@@ -1,11 +1,12 @@
 <footer>
-  <div style="padding: 10px;">
+  <ul style="padding: 10px;">
     <% if shop_signed_in? %>
-      <%= link_to 'マイページ', shop_path(current_shop) %>
-      <%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %>
+      <li><%= link_to 'マイページ', shop_path(current_shop) %></li>
+      <li><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %></li>
     <% else %>
-      <%= link_to '掲載をご希望のお店の方はこちら', shops_path %>
+      <li><%= link_to '掲載をご希望のお店の方はこちら', shops_path %></li>
+      <li><%= link_to 'ログイン', shop_session_path %></li>
     <% end %>
-  </div>
+  </ul>
   <div class="copyright">© 2018 STAFFMIEL.</div>
 </footer>

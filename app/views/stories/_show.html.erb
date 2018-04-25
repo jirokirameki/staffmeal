@@ -2,8 +2,10 @@
   <% if shop_signed_in? %>
     <% if shop.id == current_shop.id %>
       <ul class="list-inline">
+        <% if shop.story.draft == true %>
+          <li class="draft">※下書き</li>
+        <% end %>
         <li class="shop-edit"><%= link_to '編集', edit_story_path(shop.story), type:"button", class:"btn btn-default" %></li>
-        <li><%= link_to '削除', shop.story, type:"button", class:"btn btn-danger", method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></li>
       </ul>
     <% end %>
   <% end %>
@@ -19,11 +21,11 @@
   
 <div class="story-article">  
   <p class="subtitle">お店の始まりは？</p>
-  <p class="paragraph"><%= simple_format(shop.story.origin) %></p>
+  <%= simple_format(shop.story.origin, :class => "paragraph") %>
     
   <p class="subtitle">これだけは食べてほしいお勧めメニューは？</p>
-  <p class="paragraph"><%= simple_format(shop.story.recommend) %></p>
+  <%= simple_format(shop.story.recommend, :class => "paragraph") %>
     
   <p class="subtitle">お店の雰囲気は？</p>
-  <p class="paragraph"><%= simple_format(shop.story.atmosphere) %></p>
+  <%= simple_format(shop.story.atmosphere, :class => "paragraph") %>
 </div>

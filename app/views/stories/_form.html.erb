@@ -12,40 +12,46 @@
   
   <div class="story-article">
     <div class="form-group">
-      <%= f.label :title %><br />
+      <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control', :maxlength => "50", placeholder: '最大50文字まで入力できます' %>
     </div>
+  </div>
     
     <!-- 追加箇所 開始 -->
+    <div class="existing-img">
+      <% if story.image? %><%= image_tag story.image.url %><% end %>
+    </div>    
+  
     <div class="form-group">
       <div class="imagePreview" style="margin-bottom: 5px;"></div>
   
-      <div class="input-group">
-        <label class="input-group-btn">
-          <span class="btn btn btn-primary">
-            写真を選択<%= f.file_field :image, :accept => 'image/*', :capture => "camera", :id => "upfile", :style => "display:none;" %>
-          </span>
-        </label>
-        <input type="text" class="form-control" style="height: 30.8px; padding: 2px 12px;" readonly="">
-      </div>
-      <%= f.hidden_field :image_cache, class: 'form-control' %>
+    <div class="input-group container">
+      <label class="input-group-btn">
+        <span class="btn btn btn-primary">
+          写真を選択<%= f.file_field :image, :accept => 'image/*', :capture => "camera", :id => "upfile", :style => "display:none;" %>
+        </span>
+      </label>
+      <input type="text" class="form-control" style="height: 30.8px; padding: 2px 12px;" readonly="">
     </div>
-    <!-- 追加箇所 終了 -->
+    <%= f.hidden_field :image_cache, class: 'form-control' %>
+  </div>
+  <!-- 追加箇所 終了 -->
 
+  <div class="story-article">
     <div class="form-group">
-      <%= f.label :origin, 'お店の始まりは？' %><br />
-      <%= f.text_area :origin, rows: 8, class: 'form-control', :maxlength => "600", placeholder: '最大600文字まで入力できます' %>
-    </div>
-
-
-    <div class="form-group">
-      <%= f.label :recommend, 'これだけは食べてほしいお勧めメニューは？' %><br />      
-      <%= f.text_area :recommend, rows: 8, class: 'form-control', :maxlength => "600", placeholder: '最大600文字まで入力できます' %>
+      <%= f.label :origin, 'お店の始まりは？（250文字）' %>
+      <%= f.text_area :origin, rows: 8, class: 'form-control', :maxlength => "250", placeholder: '最大250文字まで入力できます' %>
     </div>
 
+
     <div class="form-group">
-      <%= f.label :atmosphere, 'お店の雰囲気は？' %><br />  
-      <%= f.text_area :atmosphere, rows: 8, class: 'form-control', :maxlength => "600", placeholder: '最大600文字まで入力できます' %>
+      <%= f.label :recommend, 'これだけは食べてほしい。（250文字）' %>   
+      <%= f.text_area :recommend, rows: 8, class: 'form-control', :maxlength => "250", placeholder: '最大250文字まで入力できます' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :atmosphere, 'お店の雰囲気は？（250文字）' %>
+      <%= f.text_area :atmosphere, rows: 8, class: 'form-control', :maxlength => "250", placeholder: '最大250文字まで入力できます' %>
     </div>
 
     <div class="actions">

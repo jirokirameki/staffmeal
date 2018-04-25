@@ -17,7 +17,8 @@
     <% end %>
   </ul>
   <p class="user-name">
-    <%= @user.user_name %> さん<% if @user.location? %> @ <%= @user.location %><% end %>
+    <%= @user.user_name %> さん
+    <% if @user.location? %><br/><i class="fas fa-map-marker-alt"></i>&nbsp;<%= @user.location %><% end %>
   </p>
 </div>
 

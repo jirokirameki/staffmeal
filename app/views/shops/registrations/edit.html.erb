@@ -1,9 +1,3 @@
-<% if shop_signed_in? %>
-  <% if @shop.id == current_shop.id %>
-    <p class="shop-logout"><%= link_to 'ログアウト', destroy_shop_session_path, method: :delete %></p>
-  <% end %>
-<% end %>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'h-adr' }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -30,22 +24,22 @@
 
   <div class="container">
     <div class="form-group">
-      <%= f.label :shop_name %><br />
+      <%= f.label :shop_name %>
       <%= f.text_field :shop_name, autofocus: true, class: 'form-control', placeholder: '店名（必須）' %>
     </div>
     <div class="form-group">
-      <%= f.label :email %><br />        
+      <%= f.label :email %>     
       <%= f.email_field :email, autocomplete: "email", class: 'form-control', placeholder: 'メールアドレス（必須）' %>
     </div>    
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
     <div class="form-group">
-      <%= f.label :phone_number %><br />
-      <%= f.number_field :phone_number, class: 'form-control', placeholder: '電話番号（数字のみ）' %>
+      <%= f.label :phone_number %>
+      <%= f.number_field :phone_number, class: 'form-control', placeholder: '電話番号（ハイフンなし）' %>
     </div>
     <div class="form-group">
-      <%= f.label :shop_type %><br />        
+      <%= f.label :shop_type %><br/>
       <label><%= f.radio_button :shop_type, "カフェ" %>カフェ</label>
       <label><%= f.radio_button :shop_type, "居酒屋" %>居酒屋</label>
       <label><%= f.radio_button :shop_type, "その他" %>その他</label>
@@ -56,45 +50,42 @@
   <div class="container">
     <div class="form-group">
       <span class="p-country-name" style="display:none;">Japan</span>
-      <%= f.label :post_code %><br />
-      <%= f.text_field :post_code, class: 'p-postal-code form-control', placeholder: '郵便番号（数字）' %>      
+      <%= f.label :post_code %>
+      <%= f.number_field :post_code, class: 'p-postal-code form-control', placeholder: '郵便番号（ハイフンなし）' %>      
     </div>
     <div class="form-group">
-      <%= f.label :prefecture %><br />        
+      <%= f.label :prefecture %>
       <%= f.text_field :prefecture, class: 'p-region form-control', placeholder: '都道府県' %>   
     </div>
     <div class="form-group">
-      <%= f.label :city %><br />         
+      <%= f.label :city %>
       <%= f.text_field :city, class: 'p-locality form-control', placeholder: '市区町村' %>   
     </div>
      <div class="form-group">
-      <%= f.label :street %><br />  
+      <%= f.label :street %>
       <%= f.text_field :street, class: 'p-street-address form-control', placeholder: '番地' %>   
     </div>
     <div class="form-group">
-      <%= f.label :building %><br />    
+      <%= f.label :building %> 
       <%= f.text_field :building, class: 'form-control', placeholder: '建物名（任意）' %>  
     </div>      
     <div class="form-group">
-      <%= f.label :near_station %><br />    
+      <%= f.label :near_station %>  
       <%= f.text_field :near_station, class: 'form-control', placeholder: 'JR京都駅' %>  
     </div>          
   </div>
   
   <div class="container">
     <div class="form-group">
-      <%= f.label :makanai, '採用面談時のまかない提供'%>&nbsp;&nbsp;<%= f.check_box 'makanai',{},checked_value = "true",unchecked_value = "false" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :open_hours_lunch %><br />
+      <%= f.label :open_hours_lunch %>
       <%= f.text_field :open_hours_lunch, class: 'form-control', placeholder: '10：30~16：00' %>
     </div>
     <div class="form-group">
-      <%= f.label :open_hours_dinner %><br />
+      <%= f.label :open_hours_dinner %>
       <%= f.text_field :open_hours_dinner, class: 'form-control', placeholder: '16：00~22：00 (21:30L.O)' %>
     </div>
     <div class="form-group">
-      <%= f.label :closed_days %><br />
+      <%= f.label :closed_days %>
       <%= f.text_field :closed_days, class: 'form-control', placeholder: '日曜日 / 毎月第３月曜日' %>
     </div>
     <div class="form-group">
@@ -102,15 +93,15 @@
       <%= f.text_field :price_range_lunch, class: 'form-control', placeholder: '1,000円～1,600円' %>
     </div>
     <div class="form-group">
-      <%= f.label :price_range_dinner %><br />
+      <%= f.label :price_range_dinner %>
       <%= f.text_field :price_range_dinner, class: 'form-control', placeholder: '2,000円～3,900円' %>
     </div>
     <div class="form-group">
-      <%= f.label :shop_info_url %><br />
-      <%= f.text_field :shop_info_url, class: 'form-control', placeholder: 'https://xxx.xx.xx' %>
+      <%= f.label :url %>
+      <%= f.url_field :url, class: 'form-control', placeholder: 'https://xxx.xx.xx' %>
     </div>       
     <div class="form-group">
-      <%= f.label :other %><br />
+      <%= f.label :other %>
       <%= f.text_area :other, class: 'form-control', placeholder: '' %>
     </div>        
   </div>  

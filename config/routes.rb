@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   
   resources :likes, only: [:create, :destroy]
   
-  resources :stories
+  resources :stories, only: [:show, :new, :create, :edit, :update]
+  resources :job_offers, only: [:show, :new, :create, :edit, :update]
 end

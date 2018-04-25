@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   validates :user_name, presence: true, length: { maximum: 50 }
+  validates :location, length: { maximum: 50 }
   
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :posts, through: :likes
 
   def like(post)

@@ -3,9 +3,18 @@ class Story < ApplicationRecord
   
   mount_uploader :image, ImageUploader
   
+  # 常にチェック
   validates :shop_id, presence: true
-  validates :title, presence: true, length: { maximum: 40 }
-  validates :origin, presence: true, length: { maximum: 600 }
-  validates :recommend, presence: true, length: { maximum: 600 }  
-  validates :atmosphere, presence: true, length: { maximum: 600 }    
+  validates :title, length: { maximum: 50 }
+  validates :origin, length: { maximum: 250 }
+  validates :recommend, length: { maximum: 250 }
+  validates :atmosphere, length: { maximum: 250 }    
+  
+  # post時のみチェック
+  with_options on: :post do
+    validates :title, presence: true
+    validates :origin, presence: true
+    validates :recommend, presence: true
+    validates :atmosphere, presence: true
+  end
 end
