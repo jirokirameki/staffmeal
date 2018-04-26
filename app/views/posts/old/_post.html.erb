@@ -1,0 +1,31 @@
+<% if shop_signed_in? %>
+  <% if post.shop.id == current_shop.id %>
+    <ul class="shop-admin-menu list-inline">
+      <li class="shop-edit"><%= link_to '編集', edit_post_path(post), type:"button", class:"btn btn-default" %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<p class="shop-name"><%= link_to post.shop.shop_name, shop_path(post.shop) %>
+  <% if post.shop.job_offer.draft == false %>
+    &nbsp;&nbsp;&nbsp;<i class="fab fa-black-tie fa-fw" style="color: #777"></i>
+    <% if post.shop.job_offer.makanai? %>
+      <i class="fas fa-utensils fa-fw" style="color: #777"></i>
+    <% end %>
+  <% end %>
+</p>
+
+<!-- post-img -->
+<% if post.image? %>
+  <%= image_tag post.image.url, class: 'full-width' %>
+<% end %>
+<ul class="post-icons">
+  <li><i class="far fa-comments fa-fw"></i><span id="comment-count-<%= post.id%>">0</span></li>
+  <li id="like-button-<%= post.id%>"><%= render 'likes/like-button', post: post %></li>
+</ul>
+<% unless post.comment.empty? %>
+  <p class=post-comment>
+    <span style="font-weight: bold;"><%= post.shop.shop_name %>&nbsp;</span>
+    <%= simple_format(post.comment, {}, wrapper_tag: "span") %>
+  </p>
+<% end %>

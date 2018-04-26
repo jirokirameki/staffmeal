@@ -13,6 +13,10 @@ body {
   color: #333;
   font-size: 1.4em;
 }
+.except-footer {
+  /*footerを最下部に表示させるためのCSS*/
+  min-height: calc(100vh - 220px);
+}
 ul {
   list-style-type: none;
   list-style-position: inside;  
@@ -20,12 +24,12 @@ ul {
   padding: 0;
 }
 label {
-  font-size: 1.0rem;
+  font-size: 1.1rem;
   color: #999;
   margin-left: 1px;
 }
 .label {
-  font-size: 1.0rem;
+  font-size: 1.1rem;
   color: #999;
   margin: 0;
   padding: 0;
@@ -68,10 +72,15 @@ label {
   font-size: 1.1rem;
   font-weight: bold;
 }
+.paragraph {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+}
 /*error message*/
 #error_explanation {
   color: #a94442;
-  font-size: 1.0rem;
+  font-size: 1.1rem;
   
   background-color: #f2dede;
   border: 1px solid #ebccd1;
@@ -126,13 +135,18 @@ label {
   float: left;
   margin: 5px 0;
 }
+.user-icon {
+  width: auto;
+  height: 30px;
+  border-radius: 50%;
+}
 /*during-login*/
 .during-login {
   overflow: hidden;
   padding: 5px 10px;
   background-color: #23282d;
   border-bottom: 1px solid #eee;
-  font-size: 1.0rem;
+  font-size: 1.1rem;
 }
 .during-login li {
   float: left;
@@ -144,12 +158,10 @@ label {
   color: #eee;
 }
 
-
 /************** _flash_messages **************/
 .alert {
   font-size: 1.2rem;
 }
-
 
 
 /************** footer **************/
@@ -161,7 +173,7 @@ footer {
   
   position: relative;
   
-  font-size: 1.0rem;
+  font-size: 1.1rem;
   color: #eee;  
 }
 footer a {
@@ -169,7 +181,7 @@ footer a {
 }
 .copyright {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1.0rem;
   /*color: #eee;*/
   
   width:100%;
@@ -177,7 +189,6 @@ footer a {
   position: absolute;
   bottom: 0;
 }
-
 
 .container {
   padding: 0;
@@ -187,7 +198,7 @@ footer a {
 /*　右下の丸ボタン（pageTop/camera）　*/
 #pageTop, #camera {
   position: fixed;
-  bottom: 10px;
+  bottom: 10px;   
   right: 10px;
   margin: 0;
 }
@@ -202,14 +213,11 @@ footer a {
   border-radius: 30px;
   width: 50px;
   height: 50px;
-  /*background-color: #9FD6D2;*/
+  background-color: #9FD6D2;
   color: #fff;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-}
-#pageTop a {
-  background-color: #9FD6D2;
 }
 #camera a {
   background-color: #337ab7;
@@ -233,11 +241,11 @@ footer a {
 
 /************** posts/_post **************/
 .shop-name {
+  font-size: 1.6rem;
   font-weight: bold;
-  margin: 5px 10px;  
+  margin: 5px 10px;
 }
 .post-comment {
-  font-size: 1.2rem;
   margin: 5px 10px; 
 }
 .post-icons {
@@ -253,6 +261,11 @@ footer a {
   font-size: 2.4rem;
   color: #777;
 }
+.post-icons li svg {
+  font-size: 2.4rem;
+  color: #777;
+}
+
 .post-icons li span {
   line-height: 25px;
   font-size: 1.2rem;
@@ -260,14 +273,14 @@ footer a {
 
 /************** shops/show **************/
 .shop-tags {
-  text-align: center;
   font-size: 1.2rem;
+  text-align: center;
   color: #777;
 }
 .summary {
+  font-size: 1.3rem;
   margin: 10px;
   padding: 10px;
-  font-size: 1.2rem;
 }
 
 /* shop-admin-menu */
@@ -285,7 +298,6 @@ footer a {
   table-layout: fixed;
   width:100%;
   margin: 30px 0 20px 0;
-  font-size: 1.2rem;
 }
 .tabs li {
   display:table-cell;
@@ -344,20 +356,21 @@ footer a {
   margin-top: 50px;
 }
 .job-offer-article .paragraph {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
 }
 .job-offer-condition-title {
   background-color: #eee;
   padding: 10px;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   margin-bottom: 0;
 }
 .job-offer-condition {
-  font-size: 1.0rem;  
+  font-size: 1.2rem;  
 }
 .job-offer-condition th {
+  font-size: 1.1rem;
   color: #999;
   font-weight: normal;
 }
@@ -376,7 +389,7 @@ footer a {
   margin-top: 50px;
 }
 .story-article .paragraph {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;  
 }
@@ -386,13 +399,14 @@ footer a {
 .shop-info-title {
   background-color: #eee;
   padding: 10px;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   margin-bottom: 0;
 }
 .shop-info {
-  font-size: 1.0rem;
+  font-size: 1.2rem;
 }
 .shop-info th {
+  font-size: 1.1rem;  
   color: #999;
   font-weight: normal;
 }
@@ -410,9 +424,6 @@ footer a {
 .twitter-login-lead {
   width: 80%;
   margin: 50px auto 30px;
-}
-.twitter-login-lead p {
-  font-size: 1.2rem;
 }
 .twitter-login-button-area {
   text-align: center;
@@ -437,8 +448,6 @@ footer a {
   border-radius: 50%;
 }
 .user-name {
-  font-size: 1.4rem;
-  /*font-weight: bold;*/
   margin: 5px 0;
 }
 .user-prof-edit a {
@@ -450,7 +459,7 @@ footer a {
 }
 .user-logout a {
   color: #777;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
 }
 
 
@@ -507,14 +516,135 @@ footer a {
 .user-prof-edit-wrapper {
   margin: 10px;
 }
-.user-prof-edit-wrapper p {
-  font-size: 1.2rem;
-}
 
 /************** posts/show **************/
 .story-edit a {
   color: #777;
 }
+
+/************** モーダルウインドウ **************/
+.myModal_popUp,
+input[name="myModal_switch"],
+#myModal_open + label ~ label {
+  display: none;
+}
+#myModal_open + label,
+#myModal_close-button + label {
+  cursor: pointer;
+}
+
+.myModal_popUp {
+  animation: fadeIn 1s ease 0s 1 normal;
+  -webkit-animation: fadeIn 1s ease 0s 1 normal;
+}
+#myModal_open:checked ~ #myModal_close-button + label{
+  animation: fadeIn 2s ease 0s 1 normal;
+  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+#myModal_open:checked + label ~ .myModal_popUp {
+  background: #fff;
+  display: block;
+  width: 90%;
+  
+  /*本文エリアが縦方向に大きすぎるので調整*/
+  /*height: 80%;*/
+  height: 50%;
+  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  z-index: 998;
+}
+
+#myModal_open:checked + label ~ .myModal_popUp > .myModal_popUp-content {
+  width: calc(100% - 40px);
+  height: calc(100% - 20px - 44px );
+  padding: 10px 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling:touch;
+
+  /*本文を中央ぞろえにするために追記  */
+  margin: auto;
+}
+
+#myModal_open:checked + label + #myModal_close-overlay + label {
+  background: rgba(0, 0, 0, 0.70);
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+  z-index: 997;
+}
+/*　↓　下のCLOSEボタンを非表示にするためコメントアウト　*/
+/*#myModal_open:checked ~ #myModal_close-button + label {*/
+/*  display: block;*/
+/*  background: #fff;*/
+/*  text-align: center;*/
+/*  font-size: 25px;*/
+/*  line-height: 44px;*/
+/*  width: 90%;*/
+/*  height: 44px;*/
+/*  position: fixed;*/
+  
+  /*本文エリアを短くしたので合わせて調整*/
+  /*bottom: 10%;*/
+/*  bottom: 15%;*/
+  
+/*  left: 5%;*/
+/*  z-index: 999;*/
+/*}*/
+/*#myModal_open:checked ~ #myModal_close-button + label::before {*/
+/*  content: '×';*/
+/*}*/
+/*#myModal_open:checked ~ #myModal_close-button + label::after {*/
+/*  content: 'CLOSE';*/
+/*  margin-left: 5px;*/
+/*  font-size: 80%;*/
+/*}*/
+@media (min-width: 768px) {
+  #myModal_open:checked + label ~ .myModal_popUp {
+    width: 600px;
+    height: 600px;
+  }
+  #myModal_open:checked + label ~ .myModal_popUp > .myModal_popUp-content {
+    height: calc(100% - 20px);
+  }
+  #myModal_open:checked ~ #myModal_close-button + label {
+    width: 44px;
+    height: 44px;
+    left: 50%;
+    top: 50%;
+    margin-left: 240px;
+    margin-top: -285px;
+    overflow: hidden;
+  }
+  #myModal_open:checked ~ #myModal_close-button + label::after {
+    display: none;
+  }
+}
+/*本文のスタイル用に追加*/
+.joinus {
+  font-size: 1.4rem;
+  padding-top: 30%;
+}
+
 
 /* レスポンシブ（ワイドな順に設定） */
 /*　画面サイズが1200px以上の場合、ここのスタイルを読み込む　*

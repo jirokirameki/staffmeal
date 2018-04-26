@@ -27,8 +27,11 @@
     <div id="wrapper_pc">スマートフォンでご覧ください<br/>（画面の横幅を767px以下にしてください）</div>
     
     <div id="wrapper_sp">
-      <%= render 'layouts/header' %>
-      <%= yield %>
+      <div class="except-footer">
+        <%= render 'layouts/header' %>
+        <%= yield %>
+      </div>
+      <%= render 'layouts/footer' %>
 
       <% if shop_signed_in? %>
         <% unless current_page?(new_post_path) %>
@@ -38,7 +41,6 @@
         <p id="pageTop"><a href=""><i class="fa fas fa-chevron-up fa-fw" style="font-size:2.4rem;"></i></a></p>
       <% end %>
       
-      <%= render 'layouts/footer' %>
     </div>
     
     <!--Font Awesome-->

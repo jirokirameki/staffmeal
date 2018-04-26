@@ -11,7 +11,7 @@ class Shops::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-    # super
+  #   super
   # end
 
   # GET /resource/edit
@@ -72,5 +72,9 @@ class Shops::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_password(params)
+  end
+  
+  def after_update_path_for(resource)
+    shop_path(resource)
   end
 end

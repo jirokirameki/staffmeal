@@ -7,7 +7,7 @@
 <% end %>
 
 <p class="shop-name"><%= link_to post.shop.shop_name, shop_path(post.shop) %>
-  <% if !post.shop.job_offer.nil? %>
+  <% if post.shop.job_offer.draft == false %>
     &nbsp;&nbsp;&nbsp;<i class="fab fa-black-tie fa-fw" style="color: #777"></i>
     <% if post.shop.job_offer.makanai? %>
       <i class="fas fa-utensils fa-fw" style="color: #777"></i>
@@ -20,16 +20,49 @@
   <%= image_tag post.image.url, class: 'full-width' %>
 <% end %>
 <ul class="post-icons">
-  <li>
-    <!--<i class="far fa-comment fa-fw"></i>-->
-    <i class="far fa-comments fa-fw"></i>
-    <span id="comment-count-<%= post.id%>">0</span>
-  </li>
-  <!--<li class="fas fa-comment fa-fw"></li>-->
-  <!--<i class="fas fa-comments fa-fw"></i>-->
-
-  <li id="like-button-<%= post.id%>"><%= render 'likes/like-button', post: post %></li>
-  <!--<li><a href="#"><i class="fab fa-twitter"></i></a></li>-->
+  <% if user_signed_in? %>
+    <li><i class="far fa-comments fa-fw"></i><span id="comment-count-<%= post.id%>">0</span></li>
+    <li id="like-button-<%= post.id%>"><%= render 'likes/like-button', post: post %></li>
+  <% else %>
+    <li>
+      <!--モーダルウインドウ用-->
+      <section class="myModal">
+  		  <input id="myModal_open" type="radio" name="myModal_switch" />
+  		  <label for="myModal_open">
+  		    <i class="far fa-comments fa-fw"></i><span id="comment-count-<%= post.id%>">0</span>
+  		  </label>
+  		  <input id="myModal_close-overlay" type="radio" name="myModal_switch" />
+  		  <label for="myModal_close-overlay">オーバーレイで閉じる</label>
+  		  <input id="myModal_close-button" type="radio" name="myModal_switch" />
+  		  <label for="myModal_close-button"></label>
+  		  <div class="myModal_popUp">
+  		  <div class="myModal_popUp-content">
+  		    <div class="joinus"><%= render 'users/joinus' %></div>
+  		  </div>
+  		 </div>
+  		</section>
+  		<!--モーダルウインドウ用-->
+  	</li>
+    <li>
+      <!--モーダルウインドウ用-->
+      <section class="myModal">
+  		  <input id="myModal_open" type="radio" name="myModal_switch" />
+  		  <label for="myModal_open">
+  		    <i class="far fa-heart fa-fw"></i><span><%= post.likes.count %></span>
+  		  </label>
+  		  <input id="myModal_close-overlay" type="radio" name="myModal_switch" />
+  		  <label for="myModal_close-overlay">オーバーレイで閉じる</label>
+  		  <input id="myModal_close-button" type="radio" name="myModal_switch" />
+  		  <label for="myModal_close-button"></label>
+  		  <div class="myModal_popUp">
+  		  <div class="myModal_popUp-content">
+  		    <div class="joinus"><%= render 'users/joinus' %></div>
+  		  </div>
+  		 </div>
+  		</section>
+  		<!--モーダルウインドウ用-->
+    </li>
+  <% end %>
 </ul>
 <% unless post.comment.empty? %>
   <p class=post-comment>

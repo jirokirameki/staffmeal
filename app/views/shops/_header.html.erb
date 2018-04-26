@@ -1,12 +1,12 @@
 <div class="container">
   <p class="shop-tags">
-    <% if shop.near_station? %>
+    <% unless shop.near_station.empty? %>
       <%= shop.near_station %>
     <% else %>
       ・・・
     <% end %>
       /
-    <% if shop.shop_type? %>
+    <% unless shop.shop_type.empty? %>
       <%= shop.shop_type %>
     <% else %>
       ・・・
@@ -26,7 +26,7 @@
   <ul class="summary">
     <li>今月の総いいね！ <%= @shop.total_like %> 件</li>
     <li>フォロワー数 <%= @shop.total_follower %> 人</li>
-    <% if !@shop.job_offer.nil? %>
+    <% if @shop.job_offer.draft == false %>
       <li><i class="fab fa-black-tie fa-fw"></i>&nbsp;ジョブオファー中！</li>
       <% if @shop.job_offer.makanai? %>
         <li><i class="fas fa-utensils fa-fw"></i>&nbsp;採用面談時のまかない提供OK！店</li>
