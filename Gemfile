@@ -92,4 +92,4 @@ group :production do
 end
 
 # herokuのデバッグ用
-gem 'rails_12factor', group: :production
+# gem 'rails_12factor', group: :production
