@@ -27,5 +27,8 @@ module Staffmeal
     # アプリを日本時間に設定（DBはUTCのまま）
     config.time_zone = 'Tokyo'
     # config.active_record.default_timezone = :local
+    
+    # deviseをherokuで使うためのコード？
+    config.assets.initialize_on_precompile = false
   end
 end
